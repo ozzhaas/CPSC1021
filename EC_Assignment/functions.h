@@ -8,8 +8,14 @@
 #include <cstring>
 using namespace std;
 
+//struct wordArray {
+//    string words[100000];
+//    int wordCount;
+//
+//};
 
-char mostUsedWord(ifstream&, int numofWords);
+
+int mostUsedWord(ifstream&, int numofWords);
 
 
 #endif

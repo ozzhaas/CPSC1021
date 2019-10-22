@@ -30,7 +30,7 @@ void printData(ofstream& output, Student* pupil){
 
 
     int i = 0;
-    while (!output.eof()){
+    while (output << year){
         output << first;
         output << last;
         output << month;
@@ -58,7 +58,7 @@ void readData(ifstream& input, Student* pupil){
 
     cout << "HERE";
     int i = 0;
-    while(!input.eof()) {
+    while(input >> year) {
         input >> first;
         input >> last;
         input >> month;
