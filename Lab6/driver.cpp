@@ -37,7 +37,7 @@ int main (int argc, char* argv[]) {
         }
 
         input.close();
-
+        input.clear();
         input.open(argv[1]);
         Student stud[numStuds];
 

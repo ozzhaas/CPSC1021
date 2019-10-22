@@ -13,8 +13,7 @@ int main (int argc, char* argv[]) {
     if (argc == 2) {
         ifstream inputScriptFile;
         inputScriptFile.open(argv[1]);
-        while () {
-            inputScriptFile.get(word);
+        while (inputScriptFile >> word) {
             numWords++;
         }
         mostUsedWord(inputScriptFile, numWords);
