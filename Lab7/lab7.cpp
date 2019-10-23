@@ -19,18 +19,22 @@ int main (int argc, char* argv[]) {
     inputFile.open(argv[1]);
     inputFile >> numofDates;
 
-    vector<Date> dates;
+    vector<Date> vec_dates;
 
-    Date temp;
-    for (int i = 0; i < static_cast <int>(dates.size()); i++) {
+    Date dates[numofDates];
+    for (int i = 0; i < static_cast <int>(numofDates); i++) {
         inputFile >> month;
         inputFile >> day;
         inputFile >> year;
-        temp.get_month(month);
-        temp.get_day(day);
-        temp.get_year(year);
-        dates[i].push_back(temp);
+        vec_dates.push_back(month);
+        vec_dates.push_back(day);
+        vec_dates.push_back(year);
+
+        dates[i].set_month(month);
+        dates[i].set_day(day);
+        dates[i].set_year(year);
     }
+
 
     /*for (int j = 0; j < static_cast <int>(dates.size()); j++) {
         cout << dates[j] << endl;
