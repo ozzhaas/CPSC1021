@@ -21,19 +21,20 @@ int main (int argc, char* argv[]) {
 
     vector<Date> dates;
 
-
+    Date temp;
     for (int i = 0; i < static_cast <int>(dates.size()); i++) {
-        inputFile >> month >> day >> year;
-        set_month(month);
-        set_day(day);
-        set_year(year);
-        dates[i].emplace_back(Date);
+        inputFile >> month;
+        inputFile >> day;
+        inputFile >> year;
+        temp.get_month(month);
+        temp.get_day(day);
+        temp.get_year(year);
+        dates[i].push_back(temp);
     }
 
-    for (int j = 0; j < static_cast <int>(dates.size()); j++) {
-        cout << static_cast<int> (dates[j]) << endl;
-
-    }
+    /*for (int j = 0; j < static_cast <int>(dates.size()); j++) {
+        cout << dates[j] << endl;
+    }*/
 
 
 
