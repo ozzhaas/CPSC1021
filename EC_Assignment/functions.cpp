@@ -17,7 +17,7 @@ int checkWord(char checker){
 }
 
 
-int wordCompare(word* a, word* b){
+int wordCompare(char* a, char* b){
     if (a->Count < b->Count) {
         return -1;
     }
@@ -28,34 +28,34 @@ int wordCompare(word* a, word* b){
 
 
 int mostUsedWord(ifstream& input, int numofWords){
-    wordStruct wordArray;
-    string temp_word;
+    struct wordStruct wordArray;
+    char temp_word[20];
     int max = 1;
 
     for (int i = 0; i < numofWords; i++){
         input >> temp_word;
         temp_word[i] = tolower(temp_word[i]);
         if (checkWord(temp_word[i]) == -1){
-            wordArray.word[i].erase();
+            wordArray.words[i].erase();
         }
         else {
-            if (temp_word == wordArray.word[i]) {
+            if (temp_word == wordArray.words[i]) {
                 //word is already in the array
                 //increment the count of the word
-                wordArray.Count++;
+                wordArray.words[i]->Count++;
             }
             else {
-                wordArray.word[i] = word;
-                wordArray.word[i]->Count = 1;
+                wordArray.words[i] = word;
+                wordArray.words[i]->Count = 1;
             }
         }
     }
     for (int j = 0; j < numofWords; j++){
-        if ((wordCompare(wordArray.word[j], wordArray.word[j + 1])) == -1) {
-            wordArray.maxWord = wordArray.word[j + 1];
+        if ((wordCompare(wordArray.words[j], wordArray.words[j + 1])) == -1) {
+            wordArray.maxWord = wordArray.words[j + 1];
         }
-        else if ((wordCompare(wordArray.word[j], wordArray.word[j + 1])) == 0) {
-            wordArray.maxWord = wordArray.word[j];
+        else if ((wordCompare(wordArray.words[j], wordArray.words[j + 1])) == 0) {
+            wordArray.maxWord = wordArray.words[j];
         }
     }
     cout << "Max used word is: " << wordArray.maxWord << endl;

@@ -1,4 +1,4 @@
-#ifndef FUNCTIONS_H
+    #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
 #include <string>
@@ -8,16 +8,16 @@
 #include <cstring>
 using namespace std;
 
-typedef struct {
-    string word[10000000];
+struct wordStruct{
+    string words[10000000];
     string maxWord;
-    int Count;
+    struct Counter* Count;
 
-}wordStruct;
+};
 
-//struct Counter{
-//    int word_count = 0;
-//};
+struct Counter{
+    int word_count = 0;
+};
 
 int wordCompare(char*, char*);
 
