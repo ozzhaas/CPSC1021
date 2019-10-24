@@ -17,44 +17,33 @@ int checkWord(char checker){
 }
 
 
-int wordCompare(char* a, char* b){
-    if (a->Count < b->Count) {
-        return -1;
-    }
-    else if (a->Count > b->Count) {
-        return 0;
-    }
-}
 
-
-int mostUsedWord(ifstream& input, int numofWords){
+int mostUsedWord(string temp_word_arr[], int numofWords){
     struct wordStruct wordArray;
-    char temp_word[20];
-    int max = 1;
+    wordArray.Count[numofWords] = {0};
 
     for (int i = 0; i < numofWords; i++){
-        input >> temp_word;
-        temp_word[i] = tolower(temp_word[i]);
-        if (checkWord(temp_word[i]) == -1){
-            wordArray.words[i].erase();
+        temp_word_arr[i] = tolower(temp_word_arr[i]);///Look up transform in C++
+        if (checkWord(temp_word_arr[i]) == -1)){
+            //Not a word
         }
         else {
-            if (temp_word == wordArray.words[i]) {
+            if (temp_word_arr[i] == wordArray.words[i]) {
                 //word is already in the array
                 //increment the count of the word
-                wordArray.words[i]->Count++;
+                wordArray.Count[i]++;
             }
             else {
-                wordArray.words[i] = word;
-                wordArray.words[i]->Count = 1;
+                wordArray.words[i] = temp_word_arr[i];
+                wordArray.Count[i]++;
             }
         }
     }
     for (int j = 0; j < numofWords; j++){
-        if ((wordCompare(wordArray.words[j], wordArray.words[j + 1])) == -1) {
+        if (wordArray.Count[j] < wordArray.Count[j + 1]) {
             wordArray.maxWord = wordArray.words[j + 1];
         }
-        else if ((wordCompare(wordArray.words[j], wordArray.words[j + 1])) == 0) {
+        else if (wordArray.Count[j] > wordArray.Count[j]) {
             wordArray.maxWord = wordArray.words[j];
         }
     }

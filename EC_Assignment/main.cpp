@@ -10,13 +10,24 @@ int main (int argc, char* argv[]) {
     int numWords = 0;
     string word;
 
+
+
+
     if (argc == 2) {
         ifstream inputScriptFile;
         inputScriptFile.open(argv[1]);
         while (inputScriptFile >> word) {
             numWords++;
         }
-        mostUsedWord(inputScriptFile, numWords);
+        inputScriptFile.close();
+        inputScriptFile.clear();
+        inputScriptFile.open(argv[1]);
+        string main_arr[numWords];
+        for (int i = 0; i < numWords; i++){
+            inputScriptFile >> main_arr[i];
+        }
+        mostUsedWord(main_arr[numWords], numWords);
+        inputScriptFile.close();
     }
     else if (argc == 1){
         cout << "Missing the script file." << endl;
@@ -27,5 +38,5 @@ int main (int argc, char* argv[]) {
     }
 
 
-
+return 0;
 }
