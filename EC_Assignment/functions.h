@@ -8,12 +8,20 @@
 #include <cstring>
 using namespace std;
 
-//struct wordArray {
-//    string words[100000];
-//    int wordCount;
-//
+typedef struct {
+    string word[10000000];
+    string maxWord;
+    int Count;
+
+}wordStruct;
+
+//struct Counter{
+//    int word_count = 0;
 //};
 
+int wordCompare(char*, char*);
+
+int checkWord(char);
 
 int mostUsedWord(ifstream&, int numofWords);
 
