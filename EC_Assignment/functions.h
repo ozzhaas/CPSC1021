@@ -6,27 +6,17 @@
 #include <algorithm>
 #include <fstream>
 #include <cstring>
+#include <cctype>
+#include <vector>
 using namespace std;
 
-//struct Counter{
-//    int word_count = 0;
-//};
-
-
-struct wordStruct{
-    string words[10000000];
-    string maxWord;
-    int Count[10000000];
-
-};
 
 
 
 
-int checkWord(char);
 
-
-int mostUsedWord(string, int);
+string Lower(string lower);
+string mostUsedWord(vector<string>&wordArray, int size);
 
 
 #endif

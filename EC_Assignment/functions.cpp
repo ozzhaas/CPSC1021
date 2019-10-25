@@ -5,48 +5,67 @@
 //10/21/19
 
 #include "functions.h"
+extern vector<int>frequency;
 
 
-int checkWord(char checker){
-    if ((checker >= 'a') && (checker <= 'z')) {
-        return -1;
+
+string Lower(string lowercase) {
+    int length = lowercase.size();
+    for (int i = 0; i < length; i++) {
+        if ((lowercase[i] == '.') || (lowercase[i] == ',') ||
+        (lowercase[i] == '!') || (lowercase[i] == '?') ||
+        (lowercase[i] == '-') || (lowercase[i] == '\0')) {
+            lowercase.erase (std::remove_if(lowercase.begin(), lowercase.end(), ::ispunct), lowercase.end());
+        }
+        lowercase[i] = tolower(lowercase[i]);
+        //cout << "To lower test" << endl;
+        //cout << lowercase[i] << endl;
     }
-    else {
-        return 0;
-    }
+    return lowercase;
 }
 
 
 
-int mostUsedWord(string temp_word_arr[], int numofWords){
-    struct wordStruct wordArray;
-    wordArray.Count[numofWords] = {0};
+
+
+
+string mostUsedWord(vector<string>&wordArray, vector<int>&Count, int numofWords){
+    //struct wordStruct wordArray;
+    string maxWord = {"Kellen"};
+    vector<string>new_arr;
+    string temp;
+
+    Count.push_back(1);
+
+
 
     for (int i = 0; i < numofWords; i++){
-        temp_word_arr[i] = tolower(temp_word_arr[i]);///Look up transform in C++
-        if (checkWord(temp_word_arr[i]) == -1)){
-            //Not a word
+        wordArray[i] = Lower(wordArray[i]);
+        temp = wordArray[i];
+        cout << wordArray[i] << endl;
+        if (temp == wordArray[i]) {
+            //word is already in the array
+            //increment the count of the word
+            Count[i]++;
+            //cout << wordArray.Count[i] << endl;
         }
         else {
-            if (temp_word_arr[i] == wordArray.words[i]) {
-                //word is already in the array
-                //increment the count of the word
-                wordArray.Count[i]++;
-            }
-            else {
-                wordArray.words[i] = temp_word_arr[i];
-                wordArray.Count[i]++;
-            }
+            Count[i]++;
+            frequency_count.push_back(Count[i]);
+            //if (Count[i] > 3){
+            //    cout << wordArray[i] << endl;
+            //}
         }
     }
+
     for (int j = 0; j < numofWords; j++){
-        if (wordArray.Count[j] < wordArray.Count[j + 1]) {
-            wordArray.maxWord = wordArray.words[j + 1];
+        //cout << wordArray.Count[j] << endl;
+        if (Count[j] < Count[j + 1]) {
+            maxWord = wordArray[j + 1];
         }
-        else if (wordArray.Count[j] > wordArray.Count[j]) {
-            wordArray.maxWord = wordArray.words[j];
+        else if (Count[j] > Count[j + 1]) {
+            maxWord = wordArray[j];
         }
     }
-    cout << "Max used word is: " << wordArray.maxWord << endl;
-return 0;
+    return maxWord;
 }

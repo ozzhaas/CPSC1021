@@ -5,11 +5,13 @@
 //10/21/19
 
 #include "functions.h"
+vector<string> vec_words;
+vector<int>frequency;
 
 int main (int argc, char* argv[]) {
     int numWords = 0;
     string word;
-
+    string theWord;
 
 
 
@@ -25,8 +27,11 @@ int main (int argc, char* argv[]) {
         string main_arr[numWords];
         for (int i = 0; i < numWords; i++){
             inputScriptFile >> main_arr[i];
+            vec_words.push_back(main_arr[i]);
         }
-        mostUsedWord(main_arr[numWords], numWords);
+
+        theWord = mostUsedWord(vec_words, frequency, numWords);
+        cout << "The most used word in the script is: " << theWord << endl;
         inputScriptFile.close();
     }
     else if (argc == 1){
