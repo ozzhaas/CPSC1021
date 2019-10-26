@@ -18,9 +18,17 @@ const string Date::MONTHS[] = {
 };
 
 
-Date::~Date() {}
+
 
 // Implement the constructor
+Date::Date(int month, int day, int year) {
+    month = 1;
+    day = 1;
+    year = 1900;
+}
+
+Date::~Date() {}
+
 
 // Compare function which is true if lhs is earlier than rhs
 bool Date::compare(Date& lhs, Date& rhs) {

@@ -27,7 +27,7 @@ class Date {
     static const string MONTHS[12];
 
     //constructor and destructor
-    Date(int month = 1, int day = 1, int year = 1900); // Done but needs check//
+    Date(month, day, year); // Done but needs check//
 
     ~Date ();
     /*Change this constructor such that it combines the default

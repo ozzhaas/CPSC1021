@@ -21,8 +21,8 @@ int main (int argc, char* argv[]) {
 
     vector<Date> vec_dates;
 
-    Date dates[numofDates];
-    for (int i = 0; i < static_cast <int>(numofDates); i++) {
+    Date dates[numofDates + 1];
+    for (int i = 0; i < static_cast<int> (numofDates - 1); i++) {
         inputFile >> month;
         inputFile >> day;
         inputFile >> year;
@@ -30,17 +30,15 @@ int main (int argc, char* argv[]) {
         vec_dates.push_back(day);
         vec_dates.push_back(year);
 
-        dates[i].set_month(month);
-        dates[i].set_day(day);
-        dates[i].set_year(year);
     }
+    Date test;
+    vec_dates.push_back(test.day);
+    vec_dates.push_back(test.month);
+    vec_dates.push_back(test.year);
 
+    sort(&dates[0], &dates[numofDates], Date::compare);
 
-    /*for (int j = 0; j < static_cast <int>(dates.size()); j++) {
-        cout << dates[j] << endl;
-    }*/
-
-
+    
 
 
 return 0;
