@@ -24,32 +24,18 @@ Date::~Date() {}
 
 // Compare function which is true if lhs is earlier than rhs
 bool Date::compare(Date& lhs, Date& rhs) {
-  // IMPLEMENT
+    if ((lhs.year < rhs.year) && (lhs.month < rhs.month) && (lhs.day < rhs.day)){
+        return true;
+    }
+    else {
+        return false;
+    }
 
 }
 
 
 // IMPLEMENTING GETTERS AND SETTERS //
-int Date::get_month() const {
-  return month;
-}
-void Date::set_month(int m) {
-  month = m;
-}
-/******************************/
-int Date::get_day() const {
-    return day;
-}
-void Date::set_day(int d){
-    day = d;
-}
-/******************************/
-int Date::get_year() const {
-    return year;
-}
-void Date::set_year(int y){
-    year = y;
-}
+
 /******************************/
 
 

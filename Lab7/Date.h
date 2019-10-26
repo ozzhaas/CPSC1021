@@ -27,10 +27,11 @@ class Date {
     static const string MONTHS[12];
 
     //constructor and destructor
+    Date(int month = 1, int day = 1, int year = 1900); // Done but needs check//
+
     ~Date ();
     /*Change this constructor such that it combines the default
      *and regular/parametized constructor in one. */
-    Date(int, int, int);
 
     // Getter/setter for month
     int get_month() const;

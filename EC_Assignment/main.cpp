@@ -6,7 +6,6 @@
 
 #include "functions.h"
 vector<string> vec_words;
-vector<int>frequency;
 
 int main (int argc, char* argv[]) {
     int numWords = 0;
@@ -30,7 +29,7 @@ int main (int argc, char* argv[]) {
             vec_words.push_back(main_arr[i]);
         }
 
-        theWord = mostUsedWord(vec_words, frequency, numWords);
+        theWord = mostUsedWord(vec_words, numWords);
         cout << "The most used word in the script is: " << theWord << endl;
         inputScriptFile.close();
     }

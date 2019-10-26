@@ -5,7 +5,6 @@
 //10/21/19
 
 #include "functions.h"
-extern vector<int>frequency;
 
 
 
@@ -25,18 +24,14 @@ string Lower(string lowercase) {
 }
 
 
-
-
-
-
-string mostUsedWord(vector<string>&wordArray, vector<int>&Count, int numofWords){
+string mostUsedWord(vector<string>&wordArray, int numofWords){
     //struct wordStruct wordArray;
     string maxWord = {"Kellen"};
-    vector<string>new_arr;
+    vector<string> new_arr;
+    vector<int> Count;
     string temp;
 
     Count.push_back(1);
-
 
 
     for (int i = 0; i < numofWords; i++){
@@ -50,8 +45,8 @@ string mostUsedWord(vector<string>&wordArray, vector<int>&Count, int numofWords)
             //cout << wordArray.Count[i] << endl;
         }
         else {
-            Count[i]++;
-            frequency_count.push_back(Count[i]);
+            Count[i] = 1;
+            wordArray[i] = temp;
             //if (Count[i] > 3){
             //    cout << wordArray[i] << endl;
             //}
