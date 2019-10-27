@@ -1,9 +1,12 @@
-//Kellen Haas
-//CPSC1021
-//Sec. 001-F19
-//mkhaas@g.clemson.edu
-//Damion
-//10/22/19
+/**********************
+  Kellen Haas
+  CPSC1021
+  Sec. 001-F19
+  mkhaas@g.clemson.edu
+  Damion
+  10/27/19
+ *********************/
+
 
 
 #include "Date.h"
@@ -17,26 +20,66 @@ const string Date::MONTHS[] = {
 };
 
 
-// Implement the constructor
+// Implemented the constructor
 Date::Date(int m, int d, int y) {
-    month = 1;
-    day = 1;
-    year = 1900;
+    month = m;
+    day = d;
+    year = y;
 }
 
 
-// Compare function which is true if lhs is earlier than rhs
+// Implemented the destructor
+Date::~Date() {}
+
+
+/*Compare function is used to take two instances of Date
+  and compare them to see which one is earlier than the other.
+  Returning true tells the sort function it is earlier, while
+  returning false tells the sort function is it later.*/
 bool Date::compare(Date& lhs, Date& rhs) {
-    if ((lhs.year < rhs.year) && (lhs.month < rhs.month) && (lhs.day < rhs.day)){
+
+    //If the first dates year is earlier than the 2nd return true//
+    if (lhs.year < rhs.year) {
         return true;
     }
     else {
-        return false;
+        //Covers the instance of the years being equal//
+        if (lhs.year == rhs.year) {
+            /*If the months are not equal, and the first dates month is
+              earlier than the 2nd return true*/
+            if (lhs.month < rhs.month) {
+                return true;
+            }
+            /*Else if the months are also equal then check the days*/
+            else if (lhs.month == rhs.year) {
+                /*If the first dates day is earlier than the 2nd
+                  return true*/
+                if (lhs.day < rhs.day) {
+                    return true;
+                }
+                /*Else if the first dates day is later than the second or the
+                  first dates day and the second dates day are equal,
+                  return false*/
+                else {
+                    return false;
+                }
+            }
+        }
+        /*If the first dates year is later than the second dates year
+          return false*/
+        else {
+            return false;
+        }
     }
-
+    //Default return true//
+    return true;
 }
 
 
+/*Implemenation and definition of getters and setters
+  The getters and setters are used to take in the value of
+  the dates and set the Date classes values to those input
+  values*/
 int Date::get_month() const {
   return month;
 }
@@ -61,12 +104,14 @@ void Date::set_year(int y) {
 }
 
 
-// Returns a well formatted string representation of this Date
+/*Uses stringstream to return a well formatted string
+  representation of this Date*/
 string Date::print() {
     stringstream string;
         string << left << setw(10) << MONTHS[month - 1] << setw(3) << day
         << setw(5) << year << endl;
 
+    //Returns a formatted string to print to the output file//
     return string.str();
 
 }
