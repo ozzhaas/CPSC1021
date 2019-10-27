@@ -21,13 +21,11 @@ const string Date::MONTHS[] = {
 
 
 // Implement the constructor
-Date::Date(int month, int day, int year) {
+Date::Date(int m, int d, int y) {
     month = 1;
     day = 1;
     year = 1900;
 }
-
-Date::~Date() {}
 
 
 // Compare function which is true if lhs is earlier than rhs
@@ -42,13 +40,36 @@ bool Date::compare(Date& lhs, Date& rhs) {
 }
 
 
-// IMPLEMENTING GETTERS AND SETTERS //
+int Date::get_month() const {
+  return month;
+}
+void Date::set_month(int m) {
+  month = m;
+}
 
-/******************************/
 
+int Date::get_day() const {
+    return day;
+}
+void Date::set_day(int d) {
+    day = d;
+}
+
+
+int Date::get_year() const {
+    return year;
+}
+void Date::set_year(int y) {
+    year = y;
+}
 
 
 // Returns a well formatted string representation of this Date
 string Date::print() {
-  // IMPLEMENT
+    stringstream string;
+        string << left << setw(10) << MONTHS[month - 1] << setw(3) << day
+        << setw(5) << year << endl;
+
+    return string.str();
+
 }

@@ -7,6 +7,7 @@
 #include <vector>
 #include <fstream>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -27,11 +28,10 @@ class Date {
     static const string MONTHS[12];
 
     //constructor and destructor
-    Date(month, day, year); // Done but needs check//
+    Date(int m = 1, int d = 1, int y = 1900);// Done but needs check//
 
     ~Date ();
-    /*Change this constructor such that it combines the default
-     *and regular/parametized constructor in one. */
+
 
     // Getter/setter for month
     int get_month() const;
@@ -48,5 +48,7 @@ class Date {
     // Produces string representation of Date using stringstream
     string print();
 };
+
+
 
 #endif
