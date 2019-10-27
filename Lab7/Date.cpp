@@ -7,7 +7,6 @@
 
 
 #include "Date.h"
-#include <iostream>
 
 // Just an array of strings. Access a month using:
 // Date::MONTHS[0] ---> "JANUARY"
@@ -16,8 +15,6 @@ const string Date::MONTHS[] = {
   "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER",
   "NOVEMBER", "DECEMBER"
 };
-
-
 
 
 // Implement the constructor
