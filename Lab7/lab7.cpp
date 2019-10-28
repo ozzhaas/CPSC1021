@@ -52,7 +52,8 @@ int main (int argc, char* argv[]) {
            Date temp(month, day, year);
            vec_dates.push_back(temp);
     }
-    Date test();
+    Date test;
+    vec_dates.push_back(test);
 
 
     /*Call the sort function to go through the dates from beginning to end
@@ -62,7 +63,7 @@ int main (int argc, char* argv[]) {
 
     /*For loop used to store all the vector elements in a temporary strings
       and then print them to the output file using stringstream*/
-    for (int k = 0; k < static_cast<int> (numofDates); k++) {
+    for (int k = 0; k < static_cast<int> (numofDates + 1); k++) {
         temp_str = vec_dates[k].print();
         outputFile << temp_str;
 
