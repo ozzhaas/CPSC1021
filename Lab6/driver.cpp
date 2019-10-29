@@ -16,7 +16,7 @@ Damion*/
 using namespace std;
 
 int main (int argc, char* argv[]) {
-    cout << "YO";
+    cout << "YO" << endl;
     int numStuds = 0;
     string line;
     if (argc != 3){
@@ -35,6 +35,7 @@ int main (int argc, char* argv[]) {
             //output << line << endl;
             numStuds++;
         }
+        //output << numStuds << endl;
 
         input.close();
         input.clear();
@@ -42,9 +43,10 @@ int main (int argc, char* argv[]) {
         Student stud[numStuds];
 
 
-        cout << "YO";
-    readData(input, stud);
-
+        cout << "YO" << endl;
+        readData(input, stud);
+        ascNameSort(stud, numStuds);
+        printData(output, stud, numStuds);
         input.close();
         output.close();
     }

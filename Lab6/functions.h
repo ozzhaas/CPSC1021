@@ -22,12 +22,12 @@ struct Date{
 struct Student{
     string firstName;
     string lastName;
-    Date* bday;
+    Date bday;
 };
 
-void ascNameSort(Student*);
-void decNameSort(Student*);
-void printData(ofstream&, Student*);
+void ascNameSort(Student*, int);
+void decNameSort(Student*, int);
+void printData(ofstream&, Student*, int);
 void readData(ifstream&, Student*);
 
 #endif
