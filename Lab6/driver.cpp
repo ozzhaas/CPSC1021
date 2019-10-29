@@ -5,9 +5,7 @@ Sec. 001 - F19
 mkhaas@clemson.edu
 Damion*/
 
-//SOOOO many seg faults :(
-//It reads in input fine and outputs it to the out.txt file when I only use main
-//as soon as I use my functions it freaks out. I'm sorry for wasting your time.
+
 
 #include <iostream>
 #include <fstream>
@@ -16,8 +14,8 @@ Damion*/
 using namespace std;
 
 int main (int argc, char* argv[]) {
-    cout << "YO" << endl;
     int numStuds = 0;
+    char userInput = 'a';
     string line;
     if (argc != 3){
         cout << "Error needs two files (Input and Output)" << endl;
@@ -41,11 +39,30 @@ int main (int argc, char* argv[]) {
         input.clear();
         input.open(argv[1]);
         Student stud[numStuds];
-
-
-        cout << "YO" << endl;
         readData(input, stud);
-        ascNameSort(stud, numStuds);
+        cout << "Do you want to sort the data by last name in ascending or descending order (type a for ascending or d for descending): ";
+        cin >> userInput;
+
+        if (userInput == 'a') {
+            ascNameSort(stud, numStuds);
+        }
+        else if (userInput == 'd') {
+            decNameSort(stud, numStuds);
+        }
+        else {
+            cout << "That is not a sort option. Try again: ";
+            cin >> userInput;
+            if (userInput == 'a') {
+                ascNameSort(stud, numStuds);
+            }
+            else if (userInput == 'd') {
+                decNameSort(stud, numStuds);
+            }
+            else {
+                cout << "that is not a sort option. Exiting program." << endl;
+            }
+        }
+
         printData(output, stud, numStuds);
         input.close();
         output.close();

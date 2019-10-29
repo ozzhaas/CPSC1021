@@ -10,26 +10,35 @@ Damion*/
 
 
 void ascNameSort(Student* pupil, int numofStudents){
-    Student* temp;
+    Student temp;
 
-    while (int numberSwaps != 0) {
-        for (int j = i + 1; j < numofStudents; j++) {
-            if (pupil[i].lastName > pupil[j].lastName)
+    for (int i = 0; i < numofStudents - 1; i++) {
+        for (int j = 0; j < numofStudents -1 - i; j++) {
+            if (pupil[j].lastName > pupil[j + 1].lastName) {
                 temp = pupil[j];
-                pupil[j] = pupil[i];
-                pupil[i] = temp;
+                pupil[j] = pupil[j + 1];
+                pupil[j + 1] = temp;
+            }
         }
     }
 
-
-
 }
 
-void decNameSort(Student* pupil){
+void decNameSort(Student* pupil, int numofStudents){
+    Student temp;
 
-
-
+    for (int i = 0; i < numofStudents - 1; i++) {
+        for (int j = 0; j < numofStudents -1 - i; j++) {
+            if (pupil[j].lastName < pupil[j + 1].lastName) {
+                temp = pupil[j];
+                pupil[j] = pupil[j + 1];
+                pupil[j + 1] = temp;
+            }
+        }
+    }
 }
+
+
 void printData(ofstream& output, Student* pupil, int numofStudents){
     string first;
     string last;
@@ -59,7 +68,6 @@ void readData(ifstream& input, Student* pupil){
     int day = 0;
     int year = 0;
 
-    cout << "HERE" << endl;
     int i = 0;
     while(input >> first >> last >> month >> day >> year) {
         //read input
