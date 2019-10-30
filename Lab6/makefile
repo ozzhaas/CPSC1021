@@ -16,8 +16,8 @@ HDRS := \
 		$(wildcard src/**/*.h) \
 
 
-OBJS := $(patsubst %.cpp, bin/%.o, $(wildcard *.cpp))
-OBJS += $(filter %.o, $(patsubst src/%.cpp, bin/%.o, $(C_SRCS)))
+OBJS := $(patsubst %.cpp, %.o, $(wildcard *.cpp))
+OBJS += $(filter %.o, $(patsubst src/%.cpp, %.o, $(C_SRCS)))
 
 
 all: build
@@ -32,14 +32,14 @@ build: $(OBJS)
 
 #Catch root directory src files
 
-bin/%.o: %.cpp $(HDRS)
+%.o: %.cpp $(HDRS)
 		@mkdir -p $(dir $@)
 		$(CC) $(CFAGS) -c $< -o $@
 
 
 #Catch all nested directory files
 
-bin/%.o: src/%.cpp $(HDRS)
+%.o: src/%.cpp $(HDRS)
 		@mkdir -p $(dir $@)
 		$(CC) $(CFLAGS) -c $< -o $@
 
@@ -47,7 +47,7 @@ bin/%.o: src/%.cpp $(HDRS)
 
 clean:
 		rm -f $(TARGET)
-		rm -rf bin
+		rm -rf
 
 
 run:build

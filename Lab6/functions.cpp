@@ -79,5 +79,4 @@ void readData(ifstream& input, Student* pupil){
 
         i++;
     }
-    cout << first << " " << last << " " << month << " " << day << " " << year << endl;
 }
