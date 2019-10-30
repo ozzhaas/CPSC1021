@@ -6,34 +6,31 @@
   Damion
   10/27/19
  *********************/
-using namespace std;
+
 #include "board.hpp"
 
 Board::Board() {
     for (int i = 0; i < numTurns; i++) {
-        pieces.push_back(mv1);
-        pieces.push_back(mv2);
-    }#include "board.hpp"
+        pieces[i].push_back('x');
+        pieces[i + 1].push_back('o');
+    }
 }
 
-~Board();
+Board::~Board() {};
 
 
 // This function will print the gameboard.
 // I recommend using a string stream to do so.
-Board::print() {
-    stringstream printBoard;
+string Board::print() {
+    char ch = '1';
+    stringstream temp;
     for (int i = 0; i < 3; i++) {
-        printBoard << '|';
+        temp << '|' << endl;
         for (int j = 0; j < 3; j++){
-            printBoard << " " << gameboard[i][j] << " " << '|' << endl;
+            temp << left << setw(2) << ch++ << setw(2) << '|' << endl;
         }
     }
-
-
-    printBoard << left << setw(15) <<
-
-
+    return temp.str();
 }
 // This function will take in the position the game piece will be placed in and the gamepiece.
 //void insert_piece(int pos, string p);

@@ -6,8 +6,6 @@
   Damion
   10/27/19
  *********************/
-using namespace std;
-#include <iostream>
 #include "board.hpp"
 
 
@@ -15,14 +13,17 @@ using namespace std;
      char player1_move = 'a';
      char player2_move = 'b';
      int position = 0;
+     string game;
 
+     Board mainBoard;
 
-     Board print();
+     mainBoard.print();
 
+     cout << game << endl;
      cout << "Player x: Which position would you like to play?" << endl;
      cin >> position;
 
-     Board temp(player1_move, player2_move);
+
 
 
 
