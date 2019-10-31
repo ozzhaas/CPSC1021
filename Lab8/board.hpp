@@ -22,6 +22,7 @@ class Board
         // This function will print the gameboard.
         // I recommend using a string stream to do so.
         string print();
+        //int readData();
         // This function will take in the position the game piece will be placed in and the gamepiece.
         void insert_piece(int pos, string p);
         // This will return the piece you need for insert_piece. You must get this value
