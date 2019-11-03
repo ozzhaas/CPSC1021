@@ -12,15 +12,14 @@
 Board::Board() {
     pieces.push_back("x");
     pieces.push_back("o");
-    gameboard[0][0] = "1";
-    gameboard[0][1] = "2";
-    gameboard[0][2] = "3";
-    gameboard[1][0] = "4";
-    gameboard[1][1] = "5";
-    gameboard[1][2] = "6";
-    gameboard[2][0] = "7";
-    gameboard[2][1] = "8";
-    gameboard[2][2] = "9";
+    char ch = '1';
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            gameboard[i][j] = ch;
+            ch++;
+        }
+    }
     numTurns = 0;
 }
 
@@ -67,6 +66,37 @@ string Board::get_piece(int pos){
 }
 // pass a gamepiece token into this function to check if it won.
 // Think of the ways you can win in TicTacToe
-bool won(string p);
+bool Board::won(string p) {
+    int numMatches = 0;
+
+    for (int i = 0; i < 3; i++) {
+        if ((gameboard[i][0] == p) && (gameboard[i][1] == p) && (gameboard[i][2] == p)) {
+            return true;
+        }
+    }
+    for (int j = 0; j < 3; j++) {
+        if ((gameboard[0][j] == p) && (gameboard[1][j] == p) && (gameboard[2][j] == p)) {
+            return true;
+        }
+    }
+
+
+    if ((gameboard[0][2] == p) && (gameboard[1][1] == p) && (gameboard[2][0] == p)) {
+         return true;
+    }
+
+    if ((gameboard[0][0] == p) && (gameboard[1][1] == p) && (gameboard[2][2] == p)) {
+        return true;
+    }
+
+return false;
+}
 // This function will check if there is a tie.. How can it check this?
-bool is_a_tie();
+bool Board::is_a_tie(string p) {
+    if (Board::won(p) == false){
+        cout << "You tied!" << endl;
+        return true;
+    }
+
+
+}

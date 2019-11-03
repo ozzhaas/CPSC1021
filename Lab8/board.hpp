@@ -3,6 +3,7 @@
 #include <sstream>
 #include <iomanip>
 #include <iostream>
+#include <cstdbool>
 using namespace std;
 
 class Board
@@ -32,5 +33,5 @@ class Board
         // Think of the ways you can win in TicTacToe
         bool won(string p);
         // This function will check if there is a tie.. How can it check this?
-        bool is_a_tie();
+        bool is_a_tie(string p);
 };

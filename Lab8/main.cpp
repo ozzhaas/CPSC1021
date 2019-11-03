@@ -11,7 +11,7 @@ Damion
 
 int main() {
     int position = 0;
-
+    bool win = false;
     Board mainBoard;
 
     string player = mainBoard.get_piece(position);
@@ -25,6 +25,7 @@ int main() {
         while (cin.fail() || position < 1 || position > 9){
             cout << "Error: input position is not an option on the game board. Try again!" << endl;
             cin >> position;
+            mainBoard.insert_piece(position, player);
             if (!cin.fail() && position >= 1 && position <= 9) {
                 break;
             }
@@ -32,9 +33,19 @@ int main() {
                 cin.clear();
                 cin.ignore();
                 cin >> position;
+                mainBoard.insert_piece(position, player);
             }
         }
+        win = mainBoard.won(player);
+        if (win == true) {
+            cout << mainBoard.print();
+            cout << "Congrats player " << player << " you won!" << endl;
+            break;
+        }
+
     cout << mainBoard.print();
     }
+    mainBoard.is_a_tie(player);
+
 
 }
