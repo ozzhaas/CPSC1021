@@ -137,22 +137,26 @@ bool Board::won(string p) {
     int numMatches = 0;
 
     for (int i = 0; i < 3; i++) {
-        if ((gameboard[i][0] == p) && (gameboard[i][1] == p) && (gameboard[i][2] == p)) {
+        if ((gameboard[i][0] == p) && (gameboard[i][1] == p)
+           && (gameboard[i][2] == p)) {
             return true;
         }
     }
     for (int j = 0; j < 3; j++) {
-        if ((gameboard[0][j] == p) && (gameboard[1][j] == p) && (gameboard[2][j] == p)) {
+        if ((gameboard[0][j] == p) && (gameboard[1][j] == p)
+           && (gameboard[2][j] == p)) {
             return true;
         }
     }
 
 
-    if ((gameboard[0][2] == p) && (gameboard[1][1] == p) && (gameboard[2][0] == p)) {
+    if ((gameboard[0][2] == p) && (gameboard[1][1] == p)
+       && (gameboard[2][0] == p)) {
          return true;
     }
 
-    if ((gameboard[0][0] == p) && (gameboard[1][1] == p) && (gameboard[2][2] == p)) {
+    if ((gameboard[0][0] == p) && (gameboard[1][1] == p)
+       && (gameboard[2][2] == p)) {
         return true;
     }
 
