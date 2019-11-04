@@ -9,7 +9,22 @@
 
 #include "board.hpp"
 
+
+/*****************************************
+  This is the implementation for the
+  constructor of the Board class. It also
+  initializes the gameboard slots to
+  numbers 1 - 9 and the vector to a single
+  x and a single o.
+
+  Parameters:
+  None
+
+  Return Value: None
+ ****************************************/
 Board::Board() {
+
+    //Places a single "x" and "o" into the vector to be the players//
     pieces.push_back("x");
     pieces.push_back("o");
     char ch = '1';
@@ -25,8 +40,20 @@ Board::Board() {
 
 Board::~Board() {};
 
-// This function will print the gameboard.
-// I recommend using a string stream to do so.
+
+
+
+/*****************************************
+  This function will print the gameboard
+  using stringstream with numbers
+  initially and then replaced by the
+  letters x or o.
+
+  Parameters:
+  None
+
+  Return Value: a string that is formatted and ready to print.
+ ****************************************/
 string Board::print() {
     stringstream temp;
     temp << endl;
@@ -44,7 +71,19 @@ string Board::print() {
     temp << endl;
     return temp.str();
 }
-// This function will take in the position the game piece will be placed in and the gamepiece.
+
+
+/*****************************************
+  This function will insert the gamepiece
+  aka the x or the o in the position
+  specified by the users choice.
+
+  Parameters:
+  pos = position chosen by user
+  p = a string that holds the player's value (x or o)
+
+  Return Value: void
+ ****************************************/
 void Board::insert_piece(int pos, string p) {
     string temp = "temp";
     temp = to_string(pos);
@@ -59,13 +98,41 @@ void Board::insert_piece(int pos, string p) {
 
     numTurns++;
 }
-// This will return the piece you need for insert_piece. You must get this value
-// From the Vector above.
+
+
+/*****************************************
+  This function will get the piece that
+  the player wants to insert into the
+  chosen position.
+
+  Parameters:
+  pos = position chosen by user
+
+  Return Value: a string either x or o
+  from the vector depending on whether
+  the number of turns is even or odd.
+ ****************************************/
 string Board::get_piece(int pos){
         return (pieces[numTurns % 2]);
 }
-// pass a gamepiece token into this function to check if it won.
-// Think of the ways you can win in TicTacToe
+
+
+
+
+/*****************************************
+  This function will determine if the
+  player that is passed in the
+  parameter is a winner by scanning
+  all of the rows and columns and the
+  two diagonals for three of the same
+  player either x or o.
+
+  Parameters:
+  string p = the player x or o
+
+  Return Value: true if the player wins or
+  false if the player loses
+ ****************************************/
 bool Board::won(string p) {
     int numMatches = 0;
 
@@ -91,7 +158,23 @@ bool Board::won(string p) {
 
 return false;
 }
-// This function will check if there is a tie.. How can it check this?
+
+
+
+
+/*****************************************
+  This function will determine if the
+  game is a tie by using the win function.
+  If the win function is true then there
+  is no tie, but if it is false then tie
+  is true.
+
+  Parameters:
+  string p = the player x or o
+
+  Return Value: true if the game is a tie
+  or false if it is not.
+ ****************************************/
 bool Board::is_a_tie(string p) {
     if (Board::won(p) == false){
         cout << "You tied!" << endl;

@@ -18,12 +18,18 @@ int main() {
     cout << mainBoard.print();
     for (int i = 0; i < 9; i++) {
         player = mainBoard.get_piece(position);
-        cout << "Player " << player << ": Which position would you like to play?" << endl;
+        //Receives user input for a postition//
+        cout << "Player " << player
+        << ": Which position would you like to play?" << endl;
         cin >> position;
+        //Inserts the users piece "x" or "o" in the position they chose//
         mainBoard.insert_piece(position, player);
 
         while (cin.fail() || position < 1 || position > 9){
-            cout << "Error: input position is not an option on the game board. Try again!" << endl;
+            //Checks if the read in fails or if the user entered an invalid
+            //position.
+            cout << "Error: input position is not an option on the game board."
+            << " Try again!" << endl;
             cin >> position;
             mainBoard.insert_piece(position, player);
             if (!cin.fail() && position >= 1 && position <= 9) {
@@ -36,6 +42,7 @@ int main() {
                 mainBoard.insert_piece(position, player);
             }
         }
+        //Calls the function to check for a win
         win = mainBoard.won(player);
         if (win == true) {
             cout << mainBoard.print();
@@ -45,6 +52,7 @@ int main() {
 
     cout << mainBoard.print();
     }
+    //Calls the function for a tie
     mainBoard.is_a_tie(player);
 
 
