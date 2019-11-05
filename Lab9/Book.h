@@ -1,9 +1,13 @@
 #ifndef BOOK_H
 #define BOOK_H
 
+#include <vector>
+#include <iostream>
+#include <algorithm>
 #include <string>
 #include <sstream>
 #include <iomanip>
+
 using namespace std;
 
 /*
@@ -42,6 +46,9 @@ class Book{
     string title;
     int year;
     double rating;
+
+    ~Book();
+
 };
 
 #endif

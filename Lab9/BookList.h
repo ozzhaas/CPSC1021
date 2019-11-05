@@ -5,6 +5,9 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <string>
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -25,6 +28,9 @@ class BookList {
 
     BookList(int size);
     // Constructor for the class to initialize the list.
+
+    //counts how many books and returns size
+    int howMany(ifstream& input);
 
     bool addBook(Book *b);
     // If a book with this ID is not already in the list, insert
