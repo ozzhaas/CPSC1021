@@ -20,13 +20,8 @@ class Book{
 
   public:
 
-    //Book();
-    // Constructs a default book with an ID of 0, year 0, and 0.0 rating.
 
-    Book(int ID);
-    // Constructs a book with the given ID, 0 year, and 0.0 rating.
-
-    Book(int ID = 0, string title = " ", int yr = 0, double rating = 0.0);
+    Book(int ID = 0, string titl = " ", int yr = 0, double r = 0.0);
     // Constructs a book with the given ID, year , and rating.
 
     // Accessors

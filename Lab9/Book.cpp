@@ -11,25 +11,31 @@
 #include "Book.h"
 
 
-Book::Book(int ID) {};
 
-Book::Book(int ID, string title, int yr, double raiting) {};
+Book::Book(int ID, string titl, int yr, double r) {
+	bookID = ID;
+	title = titl;
+	year = yr;
+	rating = r;
+};
 
-// int Book::getID() const {
-//
-// }
-//
-// string Book::getTitle() const {
-//
-// }
-//
-// int Book::getYear() const {
-//
-// }
-//
-// double getRating() const {
-//
-// }
+
+
+int Book::getID() const {
+	return ID;
+}
+
+string Book::getTitle() const {
+	return title;
+}
+
+int Book::getYear() const {
+	return year;
+}
+
+double getRating() const {
+	return rating;
+}
 //
 // void Book::updateBook(int yr, double rating) {
 //

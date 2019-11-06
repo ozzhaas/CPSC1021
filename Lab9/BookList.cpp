@@ -10,26 +10,37 @@
 #include "BookList.h"
 
 
-BookList::BookList(int size){};
+BookList::BookList(int size){
+};
 
 
 
-//
-//
+
+
 // bool BookList::addBook(Book* b){
+//     for (int i = 0; i < static_cast<int> (books.size()); i++) {
 //
 //
-// }
-//
-//
-// Book* BookList::search(int bookID) {
-//
-//
-//
+//         }
+//     }
 //
 // }
-//
-//
+
+
+Book* BookList::search(int bookID) {
+    Book* ptr = NULL;
+
+    for (int i = 0; i < static_cast<int> (books.size()); i++){
+        if (bookID == books[i].getID()) {
+            return books[i];
+        }
+        else {
+            return ptr;
+        }
+    }
+}
+
+
 // bool BookList::updateBook(int ID, int year, double rating) {
 //
 //
@@ -56,12 +67,9 @@ BookList::BookList(int size){};
 //
 //
 void BookList::print() {
-    stringstream string;
-    for (int i = 0; i < books.size; i++) {
-        string << books[i];
-
+    for (int i = 0; i < static_cast<int> (books.size()); i++) {
+        cout << books[i] << endl;
     }
-
 
 }
 

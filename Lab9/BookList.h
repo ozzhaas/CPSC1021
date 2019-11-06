@@ -11,17 +11,18 @@
 
 using namespace std;
 
+//
+// class ComparatorByID
+// {
+//
+//   public:
+//
+//     bool operator() (Book *a, Book *b)
+//     {
+//       return a->getID() < b->getID();
+//     }
+// };
 
-class ComparatorByID
-{
-
-  public:
-
-    bool operator() (Book *a, Book *b)
-    {
-      return a->getID() < b->getID();
-    }
-};
 class BookList {
 
   public:
@@ -42,12 +43,9 @@ class BookList {
     // Searches the list for a book with the given book ID.  If the
     // book is found, it is returned; if it is not found, NULL is returned.
 
-    //bool printBooksByYear(int year);
-    // Searches the list for a book for a given year.  If a
-    // book is found, it is printed; if it is not found, false is returned.
 
     bool updateBook(int ID, int year, double rating);
-    //Updates a book, returns true if bookID to be updated is found, fale otherwise
+    //Updates a book, returns true if bookID to be updated is found, false otherwise
 
     double calculateAverageRating();
     //Calculates average rating for all the books in the list
@@ -67,8 +65,7 @@ class BookList {
 
   private:
 
-    // Since Listnodes will only be used within the SortedList class,
-    // we make it private.
+
     vector<Book*> books;
 
 };
