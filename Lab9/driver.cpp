@@ -17,10 +17,10 @@ int howMany(ifstream& in);
 
 int main (int argc, char* argv[]) {
     int size = 0;
-    int id = 0;
-    int yr = 0;
-    double r = 0.0;
-    string titl;
+    // int id = 0;
+    // int yr = 0;
+    // double r = 0.0;
+    // string titl;
 
 
 
@@ -32,21 +32,21 @@ int main (int argc, char* argv[]) {
     input.clear();
     input.seekg(0, std::ios::beg);
     Book* Book1;
-    string temp1;
-    string temp2;
-    string temp3;
-    string temp4;
+    string id;
+    string yr;
+    string r;
+    string titl;
 
     while (!input.fail()) {
-        getline(input, temp1, ' ');
-        getline(input, temp2, ' ');
-        getline(input, temp3, ' ');
-        getline(input, temp4, '\n');
+        getline(input, id, ' ');
+        getline(input, yr, ' ');
+        getline(input, r, ' ');
+        getline(input, titl, '\n');
 
         Book1 = new Book(id, titl, yr, r);
-        cout << "test" << endl;
-        cout << temp1 << " " << temp2 << " " << temp3 << " " << temp4 << endl;
-        cout << fixed << setw(2) << setfill('0') << id << " " << yr << " " << fixed << setprecision(2) <<  r << " " << titl << endl;
+
+        //cout << temp2 << " " << temp3 << " " << temp4 << endl;
+        //cout << fixed << setw(2) << setfill('0') << id << " " << yr << " " << fixed << setprecision(2) <<  r << " " << titl << endl;
         book_list.addBook(Book1);
 
         // if (book_list.search(id) == NULL){

@@ -30,13 +30,12 @@ bool BookList::addBook(Book* b){
 
 
 Book* BookList::search(int bookID) {
-    Book* ptr = NULL;
 
-    find_if(books.begin(), books.end(), [bookID](const Book* bk) {
-        return bk;
-    });
-    return ptr;
-
+    auto result = find_if(books.begin(), books.end(), [bookID](const Book* bk)
+        {if (bk == nullptr)
+            {return false; }
+        else
+            {return bk->getID() == bookID; }});
 }
 
 
@@ -76,4 +75,4 @@ void BookList::print() {
 
 BookList::~BookList() {
     books.clear();
-};
+}
