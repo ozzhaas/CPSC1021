@@ -28,18 +28,29 @@ int main (int argc, char* argv[]) {
     size = howMany(input);
 
     BookList book_list(size);
-    book_list.print();
-
     input.clear();
     input.seekg(0, std::ios::beg);
+    Book* Book1;
 
     while (!input.fail()) {
         input >> id;
         input >> yr;
         input >> r;
         input >> titl;
-        Book Book1;
+        Book1 = new Book(id, titl, yr, r);
+        cout << "test" << endl;
+        cout << id << " " << yr << " " << fixed <<
+             setprecision(1) <<  r << " " << titl << endl;
+        book_list.addBook(Book1);
+        // if (book_list.search(id) == NULL){
+        //     //do nothing
+        // }
+        // else {
+        //     cout << "TEST" << endl;
+        //     book_list.addBook(Book1);
+        // }
     }
+    book_list.print();
 
 
 }

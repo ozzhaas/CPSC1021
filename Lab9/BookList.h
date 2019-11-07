@@ -11,17 +11,17 @@
 
 using namespace std;
 
-//
-// class ComparatorByID
-// {
-//
-//   public:
-//
-//     bool operator() (Book *a, Book *b)
-//     {
-//       return a->getID() < b->getID();
-//     }
-// };
+
+class ComparatorByID
+{
+
+  public:
+
+    bool operator() (Book *a, Book *b)
+    {
+      return a->getID() < b->getID();
+    }
+};
 
 class BookList {
 
@@ -29,6 +29,8 @@ class BookList {
 
     BookList(int size);
     // Constructor for the class to initialize the list.
+
+    ~BookList();
 
     //counts how many books and returns size
     int howMany(ifstream& input);
@@ -38,6 +40,7 @@ class BookList {
     // the given book into the list in the appropriate place and return
     // true.  If there is already a book in the list with the same ID
     // then the list is not changed and false is returned.
+
 
     Book* search(int bookID);
     // Searches the list for a book with the given book ID.  If the
@@ -61,7 +64,7 @@ class BookList {
 
     vector<Book*> getBooks() const;
 
-    ~BookList();
+
 
   private:
 

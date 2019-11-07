@@ -11,33 +11,32 @@
 
 
 BookList::BookList(int size){
+    // for (int i = 0; i < size; i++) {
+    //     books.push_back(0);
+    // }
 };
 
 
-
-
-
-// bool BookList::addBook(Book* b){
-//     for (int i = 0; i < static_cast<int> (books.size()); i++) {
-//
-//
-//         }
-//     }
-//
-// }
+bool BookList::addBook(Book* b){
+    if (search(b->getID()) == NULL) {
+        //do nothing
+    }
+    else {
+        books.push_back(b);
+        return true;
+    }
+    return false;
+}
 
 
 Book* BookList::search(int bookID) {
     Book* ptr = NULL;
 
-    for (int i = 0; i < static_cast<int> (books.size()); i++){
-        if (bookID == books[i].getID()) {
-            return books[i];
-        }
-        else {
-            return ptr;
-        }
-    }
+    find_if(books.begin(), books.end(), [bookID](const Book* bk) {
+        return bk;
+    });
+    return ptr;
+
 }
 
 
@@ -68,10 +67,13 @@ Book* BookList::search(int bookID) {
 //
 void BookList::print() {
     for (int i = 0; i < static_cast<int> (books.size()); i++) {
+        ComparatorByID()(books[i], books[i+1]);
         cout << books[i] << endl;
     }
 
 }
 
 
-BookList::~BookList() {};
+BookList::~BookList() {
+    books.clear();
+};

@@ -24,6 +24,7 @@ class Book{
     Book(int ID = 0, string titl = " ", int yr = 0, double r = 0.0);
     // Constructs a book with the given ID, year , and rating.
 
+    ~Book();
     // Accessors
     int getID() const;          // returns the book ID
     string getTitle() const;    // returns the title
@@ -42,7 +43,7 @@ class Book{
     int year;
     double rating;
 
-    ~Book();
+
 
 };
 

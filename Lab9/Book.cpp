@@ -22,7 +22,7 @@ Book::Book(int ID, string titl, int yr, double r) {
 
 
 int Book::getID() const {
-	return ID;
+	return bookID;
 }
 
 string Book::getTitle() const {
@@ -33,7 +33,7 @@ int Book::getYear() const {
 	return year;
 }
 
-double getRating() const {
+double Book::getRating() const {
 	return rating;
 }
 //
