@@ -43,8 +43,12 @@ double Book::getRating() const {
 // }
 
 
-// string Book::print() const {
-//
-// }
+string Book::print() const {
+	stringstream printStr;
+
+	printStr << fixed << setw(4) << right << bookID << " " << right << setw(2) << year << " " << setprecision(2) << setw(2) << right << rating << " " << setw(25) << right << title << endl << endl;
+
+	return printStr.str();
+}
 
 Book::~Book() {};

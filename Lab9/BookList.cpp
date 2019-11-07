@@ -11,19 +11,17 @@
 
 
 BookList::BookList(int size){
-    // for (int i = 0; i < size; i++) {
-    //     books.push_back(0);
-    // }
+    books.reserve(size);
 };
 
 
 bool BookList::addBook(Book* b){
     if (search(b->getID()) == NULL) {
-        //do nothing
-    }
-    else {
         books.push_back(b);
         return true;
+    }
+    else {
+        return false;
     }
     return false;
 }
@@ -36,6 +34,8 @@ Book* BookList::search(int bookID) {
             {return false; }
         else
             {return bk->getID() == bookID; }});
+
+    return *result;
 }
 
 
@@ -65,11 +65,15 @@ Book* BookList::search(int bookID) {
 //
 //
 void BookList::print() {
+    Book* tempbook;
+    cout << endl;
+    cout << "Number of books inserted: " << books.size() << endl;
+    cout << "Information of books sorted by their ID" << endl << endl;
     for (int i = 0; i < static_cast<int> (books.size()); i++) {
-        ComparatorByID()(books[i], books[i+1]);
-        cout << books[i] << endl;
+        sort(books.begin(), books.end(), ComparatorByID());
+            tempbook = books[i];
+            cout << tempbook->print();
     }
-
 }
 
 
