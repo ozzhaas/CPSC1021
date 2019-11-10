@@ -38,7 +38,7 @@ double Book::getRating() const {
 }
 
 
-void Book::updateBook(int yr, double rating) {
+void Book::updateBook(int yr, double r) {
 	year = yr;
 	rating = r;
 

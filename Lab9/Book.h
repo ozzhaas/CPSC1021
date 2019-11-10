@@ -32,7 +32,7 @@ class Book{
     double getRating() const;   // returns the rating
 
     // Methods
-    void updateBook(int yr, double rating); // updates the year and rating for a book
+    void updateBook(int yr, double r); // updates the year and rating for a book
     string print() const; // print out the book information
                         // as ID title year rating
 

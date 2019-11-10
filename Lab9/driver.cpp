@@ -16,11 +16,9 @@ int howMany(ifstream& in);
 
 
 int main (int argc, char* argv[]) {
-    int size = 0;
-    int id = 0;
+    int size, id, yr = 0;
     string titl = "unknown";
-    int yr = 0;
-    double r = 0;
+    double r = 0.0;
 
     ifstream input;
     input.open(argv[1]);
@@ -37,13 +35,14 @@ int main (int argc, char* argv[]) {
         getline(input, titl, '\n');
         Book1 = new Book(id, titl, yr, r);
         book_list.addBook(Book1);
-        cout << "Enter the book ID to update year and rating: ";
-        cin >> 
-
-
     }
     book_list.print();
-
+    cout << "Enter the book ID to update year and rating: " << endl;
+    cin >> id;
+    cout << "Enter the updated year and rating for the book with ID " << id << endl;
+    cin >> yr >> r;
+    book_list.updateBook(id, yr, r);
+    book_list.calculateAverageRating();
 }
 
 

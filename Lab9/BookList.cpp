@@ -40,22 +40,35 @@ Book* BookList::search(int bookID) {
 
 
 bool BookList::updateBook(int ID, int year, double rating) {
+    string title = "nothing";
 
-
-
-
-
+    if (search(ID) == nullptr) {
+        return false;
+    }
+    else {
+        Book* booktoUpdate = search(ID);
+        booktoUpdate->updateBook(year, rating);
+        return true;
+    }
 }
-//
-//
-// double BookList::calculateAverageRating() {
-//
-//
-//
-//
-// }
-//
-//
+
+
+double BookList::calculateAverageRating() {
+    Book* bookave;
+    double sum, average, rating = 0.0;
+    cout << "Average rating for books is ";
+    for (unsigned int i = 0; i < books.size(); i++) {
+        print();
+        bookave = books[i];
+        rating = bookave->getRating();
+        sum += books[i]->getRating();
+    }
+    average = sum/(static_cast<double> (books.size()));
+    cout << fixed << setprecision(2) << average << endl;
+return average;
+}
+
+
 // void BookList::removeBook(int bookID) {
 //
 //
@@ -69,7 +82,7 @@ void BookList::print() {
     cout << endl;
     cout << "Number of books inserted: " << books.size() << endl;
     cout << "Information of books sorted by their ID" << endl << endl;
-    for (int i = 0; i < static_cast<int> (books.size()); i++) {
+    for (unsigned int i = 0; i < books.size(); i++) {
         sort(books.begin(), books.end(), ComparatorByID());
             tempbook = books[i];
             cout << tempbook->print();
