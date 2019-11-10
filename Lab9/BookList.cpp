@@ -39,13 +39,13 @@ Book* BookList::search(int bookID) {
 }
 
 
-// bool BookList::updateBook(int ID, int year, double rating) {
-//
-//
-//
-//
-//
-// }
+bool BookList::updateBook(int ID, int year, double rating) {
+
+
+
+
+
+}
 //
 //
 // double BookList::calculateAverageRating() {

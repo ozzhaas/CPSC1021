@@ -36,11 +36,13 @@ int Book::getYear() const {
 double Book::getRating() const {
 	return rating;
 }
-//
-// void Book::updateBook(int yr, double rating) {
-//
-//
-// }
+
+
+void Book::updateBook(int yr, double rating) {
+	year = yr;
+	rating = r;
+
+}
 
 
 string Book::print() const {

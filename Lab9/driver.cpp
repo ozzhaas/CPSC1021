@@ -37,6 +37,9 @@ int main (int argc, char* argv[]) {
         getline(input, titl, '\n');
         Book1 = new Book(id, titl, yr, r);
         book_list.addBook(Book1);
+        cout << "Enter the book ID to update year and rating: ";
+        cin >> 
+
 
     }
     book_list.print();
