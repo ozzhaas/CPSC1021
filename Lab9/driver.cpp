@@ -20,6 +20,7 @@ int main (int argc, char* argv[]) {
     string titl = "unknown";
     double r = 0.0;
 
+if (argc == 2) {
     //Opens the input file
     ifstream input;
     input.open(argv[1]);
@@ -52,7 +53,10 @@ int main (int argc, char* argv[]) {
     book_list.removeBook(id);
     book_list.print();
 }
-
+else {
+    cout << "No input file." << endl;
+}
+}
 
 /***************************************
 Function calculates how many books to
