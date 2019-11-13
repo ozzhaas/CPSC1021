@@ -11,6 +11,10 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
+#include "Date.hpp"
+#include "Time.hpp"
+
+using namespace std;
 
 class CalendarEvent {
 

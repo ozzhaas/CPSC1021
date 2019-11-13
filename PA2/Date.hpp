@@ -12,6 +12,8 @@
 #include <sstream>
 #include <iomanip>
 
+using namespace std;
+
 class Date {
 
     private:

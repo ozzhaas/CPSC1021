@@ -1,0 +1,60 @@
+#Config
+CC = g++
+CFLAGS = -Weffc++ -Wall -std=c++11
+LFLAGS = -lm
+TARGET = date
+
+#Generate source and object lists
+C_SRCS := \
+	$(wildcard *.cpp) \
+	$(wildcard src/*.cpp) \
+	$(wildcard src/**/*.cpp) \
+
+HDRS := \
+	$(wildcard *.h) \
+	$(wildcard src/*.h) \
+		$(wildcard src/**/*.h) \
+
+
+OBJS := $(patsubst %.cpp, bin/%.o, $(wildcard *.cpp))
+OBJS += $(filter /%.o, $(patsubst src/%.cpp, bin/%.o, $(C_SRCS)))
+
+
+all: build
+			@echo "All done"
+
+
+#Link all built objects
+build: $(OBJS)
+
+		$(CC) $(OBJS) -o $(TARGET) $(LFLAGS)
+
+
+#Catch root directory src files
+
+bin/%.o: %.cpp $(HDRS)
+		@mkdir -p $(dir $@)
+		$(CC) $(CFAGS) -c $< -o $@
+
+
+#Catch all nested directory files
+
+bin/%.o: src/%.cpp $(HDRS)
+		@mkdir -p $(dir $@)
+		$(CC) $(CFLAGS) -c $< -o $@
+
+
+
+clean:
+		rm -f $(TARGET)
+		rm -rf bin
+
+
+run:build
+		./$(TARGET) data.txt goodOutputFile.txt badOutputFile.txt
+
+
+which:
+		@echo "FOUND SOURCES: ${C_SRCS}"
+		@echo "FOUND HEADERS: ${HDRS}"
+		@echo "TARGET OBJS: ${OBJS}"
