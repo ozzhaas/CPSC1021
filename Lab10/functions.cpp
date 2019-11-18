@@ -6,3 +6,44 @@
   Damion
   11/12/19
  *********************/
+#include "functions.hpp"
+
+void HFlip(Header head, Pixel** pix){
+	//double for loop to go through the pixels
+	//start with right side (last pixel) and decrement
+	Pixel tempPixel[head.getHeight()][head.getWidth()];
+	for (int k = 0; k < head.getHeight(); k++) {
+		for (int n = 0; n < head.getWidth(); n++){
+			tempPixel[k][n] = pix[k][n];
+		}
+	}
+
+
+	for (int i = 0; i < head.getHeight(); i++){
+		for (int j = 0; j < head.getWidth(); j++){
+			pix[i][j] = tempPixel[i][head.getWidth()-j];
+		}
+	}
+}
+
+
+
+bool checkArgs(int argc) {
+	if (argc == 3) {
+		return true;
+	}
+	else {
+		cout << "Not enough command line arguments. Exiting program..." << endl;
+		return false;
+	}
+}
+
+
+
+bool checkFile(ifstream& inputFile) {
+	while (!inputFile.fail()){
+		return true;
+	}
+cout << "Input file failed to open." << endl;
+return false;
+}

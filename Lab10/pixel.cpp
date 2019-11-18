@@ -6,59 +6,71 @@
   Damion
   11/12/19
  *********************/
+#include "pixel.hpp"
+
+Pixel::Pixel(unsigned char r, unsigned char g, unsigned char b){
+	red = r;
+	green = g;
+	blue = b;
+}
 
 
-Pixel(unsigned char r = 0, unsigned char g = 0, unsigned char b = 0){
+void Pixel::setR(unsigned char r){
+	red = r;
 
 }
 
 
-void setR(unsigned char){
-
-
+void Pixel::setG(unsigned char g) {
+	green = g;
 }
 
 
-void setG(unsigned char) {
-
+void Pixel::setB(unsigned char b) {
+	blue = b;
 }
 
 
-void setB(unsigned char) {
-
+void Pixel::setPixel(unsigned char r, unsigned char g, unsigned char b) {
+	setR(r);
+	setG(g);
+	setB(b);
 }
 
 
-void setPixel(unsigned char, unsigned char, unsigned char) {
-
+Pixel Pixel::getPixel()const {
+	Pixel tempPix(red, green, blue);
+	return tempPix;
 }
 
 
-Pixel getPixel()const {
-
+unsigned char Pixel::getR()const {
+	return red;
 }
 
 
-unsigned char getR()const {
-
+unsigned char Pixel::getG()const {
+	return green;
 }
 
 
-unsigned char getG()const {
-
+unsigned char Pixel::getB()const {
+	return blue;
 }
 
 
-unsigned char getB()const {
-
+void Pixel::writePixel(ofstream& outputFile) {
+	outputFile << red << green << blue;
 }
 
 
-void writePixel(ofstream&) {
+Pixel Pixel::readPixel(ifstream& inputFile) {
+	unsigned char r;
+	unsigned char g;
+	unsigned char b;
 
-}
 
-
-Pixel readPixel(ifstream&) {
-
+	inputFile >> r >> g >> b;
+	Pixel temp(r, g, b);
+	return temp;
 }

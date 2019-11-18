@@ -6,68 +6,67 @@
   Damion
   11/12/19
  *********************/
+ #include "header.hpp"
 
 
 
-Header(string m = " ", int w = 0, int h = 0, int mv = 255) {
-
-
-
-
+Header::Header(string m, int w, int h, int mv) {
+    magic = m;
+    width = w;
+    height = h;
+    maxVal = mv;
 }
 
 
-void setMagic(string) {
-
-
-
+void Header::setMagic(string m) {
+    magic = m;
 }
 
 
-void setWidth(int) {
-
-
-
+void Header::setWidth(int w) {
+    width = w;
 }
 
 
-void setHeight(int) {
-
-
+void Header::setHeight(int h) {
+    height = h;
 }
 
 
-void setMaxVal(int) {
-
-
+void Header::setMaxVal(int mv) {
+    maxVal = mv;
 }
 
 
-string getMagic()const {
-
+string Header::getMagic()const {
+    return magic;
 }
 
 
-int getWidth()const {
-
+int Header::getWidth()const {
+    return width;
 }
 
 
-int getHeight()const {
-
+int Header::getHeight()const {
+    return height;
 }
 
 
-int getMVal()const {
-
+int Header::getMVal()const {
+    return maxVal;
 }
 
 
-void readHeader(ifstream&) {
-    
+void Header::readHeader(ifstream& inputFile) {
+    inputFile >> magic;
+    inputFile >> width;
+    inputFile >> height;
+    inputFile >> maxVal;
 }
 
 
-void writeHeader(ofstream&) {
-
+void Header::writeHeader(ofstream& outputFile) {
+    outputFile << magic << endl << width << " " << height
+    << " " << maxVal << endl;
 }
