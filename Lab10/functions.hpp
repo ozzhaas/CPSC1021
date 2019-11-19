@@ -9,11 +9,14 @@
  #include <string>
  #include <fstream>
  #include <iostream>
+ #include <vector>
  #include "header.hpp"
  #include "pixel.hpp"
  using namespace std;
 
 void HFlip(Header, Pixel**);
+
+void HFlip(Header, vector<vector<Pixel>>);
 
 bool checkArgs(int);
 
