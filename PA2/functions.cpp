@@ -30,7 +30,7 @@ void readDate(ifstream& input, vector<CalendarEvent>& goodVec, vector<CalendarEv
 		int minute = get<1>(timeParts);
 
 		cout << month << "~" << day << "~" << year << endl;
-		cout << hour << ":" << minute << endl;
+		cout << hour << ":" << setprecision(2) << minute << endl;
 	}
 }
 
@@ -52,6 +52,8 @@ void isOpen(ifstream&, char*) {
 
 
 }
+
+
 tuple<int, int, int> splitDate(string Date) {
 	stringstream dateStream(Date);
 	string dateStr;

@@ -22,7 +22,7 @@ class Date {
         int year;
 
     public:
-        Date(int month, int day, int year);
+        Date(int m, int d, int y);
         void setMonth(int);
         void setDay(int);
         void setYear(int);
@@ -34,6 +34,6 @@ class Date {
         void printDate(fstream&);
         bool isDateValid();
         bool isLeapYear();
-        static const string ARRAY[13];
+        static const string MONTH[13];
 
 };

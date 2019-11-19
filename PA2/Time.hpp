@@ -21,6 +21,7 @@ class Time {
         int minute;
 
     public:
+        Time();
         Time(int hours, int mins);
         void setHour();
         void setMinute();

@@ -21,5 +21,5 @@ using namespace std;
 void readDate(ifstream&, vector<CalendarEvent>&, vector<CalendarEvent>&);
 void checkArguments(int argc);
 void isOpen(ifstream&, char*);
-tuple<int, int, int> splitDate(string Date);
-tuple<int, int> splitTime(string Time);
+std::tuple<int, int, int> splitDate(string Date);
+std::tuple<int, int> splitTime(string Time);
