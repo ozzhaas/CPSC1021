@@ -22,9 +22,9 @@ class Time {
 
     public:
         Time();
-        Time(int hours, int mins);
-        void setHour();
-        void setMinute();
+        Time(int, int);
+        void setHour(int);
+        void setMinute(int);
         int getHour();
         int getMinute();
         void printTime(fstream&) const;

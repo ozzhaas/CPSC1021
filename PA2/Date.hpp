@@ -22,6 +22,7 @@ class Date {
         int year;
 
     public:
+        Date();
         Date(int m, int d, int y);
         void setMonth(int);
         void setDay(int);

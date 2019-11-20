@@ -7,24 +7,21 @@
 ************************/
 #include "Time.hpp"
 
-Time::Time(){
-    int hours = 0;
-    int mins = 0;
-}
+Time::Time(){}
 
 Time::Time(int hours, int mins){
     hours = hour;
-    mins = min;
+    mins = minute;
 }
 
 
-void Time::setHour(){
+void Time::setHour(int hours){
     hours = hour;
 }
 
 
-void Time::setMinute(){
-    mins = min;
+void Time::setMinute(int mins){
+    mins = minute;
 }
 
 
@@ -39,10 +36,13 @@ int Time::getMinute(){
 
 
 // void Time::printTime(fstream&) const{
-//
+/*When printing the time you must convert hours from military time to regular time.
+The format of the printing hours:minutes 10:00
+pm or am. If it is noon you are to print 12:00 noon.*/
 // }
-//
-//
+
+
 // bool Time::isTimeValid(){
-//
+/*checks that the hours and minutes are between 0 and 24 and minutes are between 0
+and 59.*/
 // }

@@ -11,6 +11,8 @@
 void readDate(ifstream& input, vector<CalendarEvent>& goodVec, vector<CalendarEvent>& badVec) {
 	string line;
 	string word;
+	Date CalendarDate;
+	Time CalendarTime;
 
 	while (getline(input, line)) {
 		stringstream s(line);
@@ -25,9 +27,14 @@ void readDate(ifstream& input, vector<CalendarEvent>& goodVec, vector<CalendarEv
 		int month = get<0>(dateParts);
 		int day = get<1>(dateParts);
 		int year = get<2>(dateParts);
+		CalendarDate.setMonth(month);
+		CalendarDate.setDay(day);
+		CalendarDate.setYear(year);
 		auto timeParts = splitTime(timeString);
 		int hour = get<0>(timeParts);
 		int minute = get<1>(timeParts);
+		CalendarTime.setHour(hour);
+		CalendarTime.setMinute(minute);
 
 		cout << month << "~" << day << "~" << year << endl;
 		cout << hour << ":" << setprecision(2) << minute << endl;
@@ -42,8 +49,8 @@ void checkArguments(int argc) {
 }
 
 
-void isOpen(ifstream&, char*) {
-	ifstream input;
+void isOpen(fstream& file, char* fileType) {
+	if (fileType )
 
 
 
