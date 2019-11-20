@@ -14,9 +14,10 @@ CalendarEvent::CalendarEvent(int month, int day, int year, int hour, int minute,
 
 
 
-void CalendarEvent::printCalendar(fstream& output){
-	calDate.print();
-	calTime.print();
+void CalendarEvent::printCalendar(ofstream& output){
+	calDate.printDate(output);
+	cout << "Printing time..." << endl;
+	calTime.printTime(output);
 }
 
 
@@ -24,9 +25,7 @@ bool CalendarEvent::isEventDateValid(){
 	if (calDate.isDateValid() == true) {
 		return true;
 	}
-	else {
-		return false;
-	}
+	return false;
 }
 
 
@@ -34,12 +33,10 @@ bool CalendarEvent::isEventTimeValid(){
 	if (calTime.isTimeValid() == true) {
 		return true;
 	}
-	else {
-		return false;
-	}
+	return false;
 }
 
-//
-// string CalendarEvent::getEvent() const{
-//
-// }
+
+string CalendarEvent::getEvent() const{
+	return eventName;
+}

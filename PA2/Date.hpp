@@ -11,6 +11,7 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
+#include <fstream>
 
 using namespace std;
 
@@ -32,7 +33,7 @@ class Date {
         int getMonth() const;
         int getDay() const;
         int getYear() const;
-        void printDate(fstream&);
+        void printDate(ofstream&);
         bool isDateValid();
         bool isLeapYear();
         static const string MONTH[13];

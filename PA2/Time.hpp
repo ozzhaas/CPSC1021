@@ -11,6 +11,7 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
+#include <fstream>
 
 using namespace std;
 
@@ -27,7 +28,7 @@ class Time {
         void setMinute(int);
         int getHour();
         int getMinute();
-        void printTime(fstream&) const;
+        void printTime(ofstream&) const;
         bool isTimeValid();
 
 

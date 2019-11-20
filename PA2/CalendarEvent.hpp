@@ -25,8 +25,9 @@ class CalendarEvent {
 
     public:
 
-        CalendarEvent(int month = 0, int day = 0, int year = 0, int hour = 0, int minute = 0, string eventName = "unknown");
-        void printCalendar(fstream& out);
+        CalendarEvent(int month = 0, int day = 0, int year = 0, int hour = 0,
+                      int minute = 0, string eventName = "unknown");
+        void printCalendar(ofstream& out);
         bool isEventDateValid();
         bool isEventTimeValid();
         string getEvent() const;

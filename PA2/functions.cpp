@@ -11,8 +11,7 @@
 void readDate(ifstream& input, vector<CalendarEvent>& goodVec, vector<CalendarEvent>& badVec) {
 	string line;
 	string word;
-	Date CalendarDate;
-	Time CalendarTime;
+	CalendarEvent calendar;
 
 	while (getline(input, line)) {
 		stringstream s(line);
@@ -23,35 +22,42 @@ void readDate(ifstream& input, vector<CalendarEvent>& goodVec, vector<CalendarEv
 		unsigned int end = words.size();
 		string dateString = words.at(end - 2);
 		string timeString = words.at(end - 1);
+		stringstream nameStream;
+		for (unsigned int i = 0; i < words.size() - 3; i++){
+			nameStream << words.at(i) << " ";
+		}
+		nameStream << words.at(words.size()-3);
+		string name = nameStream.str();
 		auto dateParts = splitDate(dateString);
 		int month = get<0>(dateParts);
 		int day = get<1>(dateParts);
 		int year = get<2>(dateParts);
-		CalendarDate.setMonth(month);
-		CalendarDate.setDay(day);
-		CalendarDate.setYear(year);
 		auto timeParts = splitTime(timeString);
 		int hour = get<0>(timeParts);
 		int minute = get<1>(timeParts);
-		CalendarTime.setHour(hour);
-		CalendarTime.setMinute(minute);
-
-		cout << month << "~" << day << "~" << year << endl;
-		cout << hour << ":" << setprecision(2) << minute << endl;
+		calendar = CalendarEvent(month, day, year, hour, minute, name);
+		if (calendar.isEventDateValid() && calendar.isEventTimeValid()){
+			goodVec.push_back(calendar);
+			cout << "TEst" << endl;
+		}
+		else {
+			badVec.push_back(calendar);
+			cout << "TEST" << endl;
+		}
 	}
 }
 
 
-void checkArguments(int argc) {
+bool checkArguments(int argc) {
 	if (argc != 4) {
 		cout << "Not enough command line arguments. Exiting..." << endl;
+		return false;
 	}
+	return true;
 }
 
 
 void isOpen(fstream& file, char* fileType) {
-	if (fileType )
-
 
 
 
@@ -70,7 +76,6 @@ tuple<int, int, int> splitDate(string Date) {
 
 	int i = 0;
 	while (getline(dateStream, dateStr, '/')) {
-		cout << "DATE STR: " << dateStr << endl;
 		if (i == 0) {
 			month = stoi(dateStr);
 		}
@@ -95,7 +100,6 @@ tuple<int, int> splitTime(string Time) {
 
 	int i = 0;
 	while (getline(timeStream, timeStr, ':')) {
-		cout << "TIME STR: " << timeStr << endl;
 		if (i == 0) {
 			hour = stoi(timeStr);
 		}
