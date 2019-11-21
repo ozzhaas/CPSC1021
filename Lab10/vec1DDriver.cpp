@@ -16,3 +16,22 @@
     inputFile.open(argv[1]);
     ofstream outputFile;
     outputFile.open(argv[2]);
+    if ((checkArgs(argc) == true) && (checkFile(inputFile) == true)) {
+        Header head;
+        head.readHeader(inputFile);
+        Pixel vec1Pixel = Pixel(255, 255, 255);
+
+        vector<Pixel> pix;
+        pix.resize(head.getHeight() * head.getWidth());
+        for (int i = 0; i < head.getHeight(); i++) {
+            pix.
+        }
+
+
+
+
+
+    }
+
+
+}

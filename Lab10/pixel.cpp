@@ -71,6 +71,7 @@ Pixel Pixel::readPixel(ifstream& inputFile) {
 
 
 	inputFile >> r >> g >> b;
+	//cout << "Pixel Test: " << r << g << b << endl;
 	Pixel temp(r, g, b);
 	return temp;
 }

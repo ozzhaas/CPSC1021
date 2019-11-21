@@ -28,11 +28,11 @@ void HFlip(Header head, Pixel** pix){
 
 
 
-void HFlip(Header head, vector<vector<Pixel> > pix) {
+void HFlip(Header head, vector<vector<Pixel> >& pix) {
 	int width = head.getWidth();
 	for (int k = 0; k < head.getHeight(); k++) {
 		for (int n = 0; n < head.getWidth() / 2; n++){
-			swap(pix.at(k).at(n), pix.at(k).at(width - n));
+			swap(pix.at(k).at(n), pix.at(k).at(width - n - 1));
 		}
 	}
 }

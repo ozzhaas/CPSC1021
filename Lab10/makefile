@@ -1,11 +1,11 @@
 make 1DVector:
-	g++ pixel.cpp functions.cpp vec1DDriver.cpp header.cpp -std=c++11 -Wall
+	g++ pixel.cpp functions.cpp vec1DDriver.cpp header.cpp -std=c++11 -Wall -o vec1DDriver
 make 2DVector:
-	g++ pixel.cpp functions.cpp vec2DDriver.cpp header.cpp -std=c++11 -Wall
+	g++ pixel.cpp functions.cpp vec2DDriver.cpp header.cpp -std=c++11 -Wall -o vec2DDriver
 make 1DArray:
-	g++ pixel.cpp functions.cpp array1DDriver.cpp header.cpp -std=c++11 -Wall
+	g++ pixel.cpp functions.cpp array1DDriver.cpp header.cpp -std=c++11 -Wall -o array1DDriver
 make 2DArray:
-	g++ pixel.cpp functions.cpp array2DDriver.cpp header.cpp -std=c++11 -Wall
+	g++ pixel.cpp functions.cpp array2DDriver.cpp header.cpp -std=c++11 -Wall -o array2DDriver
 
 1DVector run:
 	./vec1DDriver pooh.ppm vec1DOut

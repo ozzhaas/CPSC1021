@@ -16,7 +16,7 @@
 
 void HFlip(Header, Pixel**);
 
-void HFlip(Header, vector<vector<Pixel>>);
+void HFlip(Header, vector<vector<Pixel>>&);
 
 bool checkArgs(int);
 

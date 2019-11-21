@@ -19,12 +19,22 @@
  	if ((checkArgs(argc) == true) && (checkFile(inputFile) == true)) {
 		Header head;
 		head.readHeader(inputFile);
+        Pixel tempPixel = Pixel(255, 255, 255);
+
 		vector<vector<Pixel> > pix;
+		pix.resize(head.getHeight());
+        cout << "Height: " << head.getHeight() << endl;
+        for (unsigned int i = 0; i < pix.size(); i++){
+            pix.at(i).resize(head.getWidth());
+        }
+        cout << "Width: " << head.getWidth() << endl;
 		for (int i = 0; i < head.getHeight(); i++){
 			for (int j = 0; j < head.getWidth(); j++){
-				pix.at(i).push_back(pix.at(i).at(j).readPixel(inputFile));
+                Pixel tempPixel2 = tempPixel.readPixel(inputFile);
+				pix.at(i).at(j) = tempPixel2;
 			}
 		}
+
 		HFlip(head, pix);
 		head.writeHeader(outputFile);
 		for (int i = 0; i < head.getHeight(); i++){
