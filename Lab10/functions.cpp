@@ -38,6 +38,21 @@ void HFlip(Header head, vector<vector<Pixel> >& pix) {
 }
 
 
+void HFlip(Header head, vector<Pixel>& pix) {
+	int j = head.getWidth() * head.getHeight();
+	int w = head.getWidth();
+	vector<Pixel> tempPix(pix);
+	int r = 0;
+
+	for (int i = 0; i < head.getWidth() * head.getHeight(); i++) {
+		r = w*(i / w);
+		pix.at(r + (j - i - 1)) = tempPix.at(i);
+		//pix.at(j - 1 - i) = tempPix.at(i);
+	}
+}
+
+
+
 bool checkArgs(int argc) {
 	if (argc == 3) {
 		return true;

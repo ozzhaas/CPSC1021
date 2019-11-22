@@ -18,6 +18,8 @@ void HFlip(Header, Pixel**);
 
 void HFlip(Header, vector<vector<Pixel>>&);
 
+void HFlip(Header head, vector<Pixel>& pix);
+
 bool checkArgs(int);
 
 bool checkFile(ifstream&);

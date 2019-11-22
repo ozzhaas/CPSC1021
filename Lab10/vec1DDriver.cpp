@@ -23,15 +23,18 @@
 
         vector<Pixel> pix;
         pix.resize(head.getHeight() * head.getWidth());
-        for (int i = 0; i < head.getHeight(); i++) {
-            pix.
+        for (unsigned int i = 0; i < pix.size(); i++) {
+            Pixel vec1Pixel2 = vec1Pixel.readPixel(inputFile);
+            pix.at(i) = vec1Pixel2;
+            //cout << pix.at(i).getB() << endl;
         }
-
-
-
-
-
+        HFlip(head, pix);
+        head.writeHeader(outputFile);
+        for (unsigned int j = 0; j < pix.size(); j++) {
+            pix.at(j).writePixel(outputFile);
+        }
     }
-
+    inputFile.close();
+    outputFile.close();
 
 }
