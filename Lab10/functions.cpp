@@ -44,9 +44,12 @@ void HFlip(Header head, vector<Pixel>& pix) {
 	vector<Pixel> tempPix(pix);
 	int r = 0;
 
-	for (int i = 0; i < head.getWidth() * head.getHeight(); i++) {
-		r = w*(i / w);
-		pix.at(r + (j - i - 1)) = tempPix.at(i);
+	/*Yvon's Comment:  Try looping through 0 and (width*height)/2 */
+
+	for (int i = 0; i < (head.getWidth() * head.getHeight())/2; i++) {
+		r = (w*(i / w));
+		//pix.at(r +(((j - i - 1)))) = tempPix.at(i);
+		swap(pix.at(i), pix.at(r +(j - i - 1)));
 		//pix.at(j - 1 - i) = tempPix.at(i);
 	}
 }
