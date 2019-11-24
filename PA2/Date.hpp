@@ -5,6 +5,9 @@
 *mkhaas
 *Instructor: Dr. Feaster
 ************************/
+#ifndef DATE_HPP
+#define DATE_HPP
+
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -33,9 +36,11 @@ class Date {
         int getMonth() const;
         int getDay() const;
         int getYear() const;
-        void printDate(ofstream&);
+        void printDate(fstream&);
         bool isDateValid();
         bool isLeapYear();
         static const string MONTH[];
 
 };
+
+#endif

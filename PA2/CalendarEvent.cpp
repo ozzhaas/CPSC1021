@@ -33,7 +33,7 @@ int CalendarEvent::getMinute() const{
     return calTime.getMinute();
 }
 
-void CalendarEvent::printCalendar(ofstream& output){
+void CalendarEvent::printCalendar(fstream& output){
     output << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
     output << getEvent() << endl;
     calDate.printDate(output);

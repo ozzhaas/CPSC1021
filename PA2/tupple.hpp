@@ -5,8 +5,9 @@
 *mkhaas
 *Instructor: Dr. Feaster
 ************************/
-#ifndef FUNCTIONS_HPP
-#define FUNCTIONS_HPP
+
+#ifndef TUPPLE_HPP
+#define TUPPLE_HPP
 
 #include <vector>
 #include <iostream>
@@ -18,13 +19,11 @@
 #include <string>
 #include <tuple>
 #include "CalendarEvent.hpp"
-#include "tupple.hpp"
 
 using namespace std;
 
-void readDate(fstream&, vector<CalendarEvent>&, vector<CalendarEvent>&);
-bool checkArguments(int argc);
-void isOpen(fstream&, char*, ios::openmode);
 
+tuple<int, int, int> splitDate(string Date);
+tuple<int, int> splitTime(string Time);
 
 #endif

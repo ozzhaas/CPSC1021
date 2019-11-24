@@ -5,6 +5,9 @@
 *mkhaas
 *Instructor: Dr. Feaster
 ************************/
+#ifndef TIME_HPP
+#define TIME_HPP
+
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -29,8 +32,10 @@ class Time {
         void setTime(int, int);
         int getHour() const;
         int getMinute() const;
-        void printTime(ofstream&) const;
+        void printTime(fstream&) const;
         bool isTimeValid();
 
 
 };
+
+#endif

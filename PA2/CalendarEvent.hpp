@@ -5,6 +5,9 @@
 *mkhaas
 *Instructor: Dr. Feaster
 ************************/
+#ifndef CALENDAREVENT_HPP
+#define CALENDAREVENT_HPP
+
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -32,10 +35,12 @@ class CalendarEvent {
         int getDay() const;
         int getHour() const;
         int getMinute() const;
-        void printCalendar(ofstream& out);
+        void printCalendar(fstream& out);
         bool isEventDateValid();
         bool isEventTimeValid();
         void setEvent(string name);
         string getEvent() const;
 
 };
+
+#endif

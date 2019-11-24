@@ -42,7 +42,7 @@ int Time::getMinute() const{
 }
 
 
-void Time::printTime(ofstream& output) const{
+void Time::printTime(fstream& output) const{
 /*When printing the time you must convert hours from military time to regular time.
 The format of the printing hours:minutes 10:00
 pm or am. If it is noon you are to print 12:00 noon.*/

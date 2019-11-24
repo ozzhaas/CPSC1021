@@ -57,7 +57,7 @@ int Date::getYear() const{
 }
 
 
-void Date::printDate(ofstream& output){
+void Date::printDate(fstream& output){
     string strMonth = getStrMonth();
     output<< fixed << strMonth << " " << day << ", " << year << " ";
     //This function is used to print the date portion of the calendar event.
