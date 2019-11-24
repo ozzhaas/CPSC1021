@@ -10,27 +10,34 @@
 Time::Time(){}
 
 Time::Time(int hours, int mins){
-    hours = hour;
-    mins = minute;
+    hour = hours;
+    minute = mins;
 }
 
 
 void Time::setHour(int hours){
-    hours = hour;
+    hour = hours;
 }
 
 
 void Time::setMinute(int mins){
-    mins = minute;
+    minute = mins;
 }
 
 
-int Time::getHour(){
+void Time::setTime(int hours, int mins){
+    hour = hours;
+    minute = mins;
+
+}
+
+
+int Time::getHour() const{
     return hour;
 }
 
 
-int Time::getMinute(){
+int Time::getMinute() const{
     return minute;
 }
 

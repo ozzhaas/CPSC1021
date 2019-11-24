@@ -26,8 +26,9 @@ class Time {
         Time(int, int);
         void setHour(int);
         void setMinute(int);
-        int getHour();
-        int getMinute();
+        void setTime(int, int);
+        int getHour() const;
+        int getMinute() const;
         void printTime(ofstream&) const;
         bool isTimeValid();
 

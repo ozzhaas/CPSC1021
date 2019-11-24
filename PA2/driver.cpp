@@ -26,6 +26,7 @@ int main(int argc, char* argv[]) {
 	readDate(input, good, bad);
 	for (auto& e : good) {
 		e.printCalendar(goodOutput);
+		//cout << e.getEvent() << endl;
 	}
 	for (auto& e : bad) {
 		e.printCalendar(badOutput);

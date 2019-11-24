@@ -25,11 +25,17 @@ class CalendarEvent {
 
     public:
 
-        CalendarEvent(int month = 0, int day = 0, int year = 0, int hour = 0,
-                      int minute = 0, string eventName = "unknown");
+        CalendarEvent(int month, int day, int year, int hour,
+                      int minute, string name);
+        int getYear() const;
+        int getMonth() const;
+        int getDay() const;
+        int getHour() const;
+        int getMinute() const;
         void printCalendar(ofstream& out);
         bool isEventDateValid();
         bool isEventTimeValid();
+        void setEvent(string name);
         string getEvent() const;
 
 };

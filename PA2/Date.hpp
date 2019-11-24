@@ -36,6 +36,6 @@ class Date {
         void printDate(ofstream&);
         bool isDateValid();
         bool isLeapYear();
-        static const string MONTH[13];
+        static const string MONTH[];
 
 };

@@ -11,7 +11,12 @@
 void readDate(ifstream& input, vector<CalendarEvent>& goodVec, vector<CalendarEvent>& badVec) {
 	string line;
 	string word;
-	CalendarEvent calendar;
+	string name = "unknown";
+	int month = 0;
+	int day = 0;
+	int year = 0;
+	int hour = 0;
+	int minute = 0;
 
 	while (getline(input, line)) {
 		stringstream s(line);
@@ -27,25 +32,80 @@ void readDate(ifstream& input, vector<CalendarEvent>& goodVec, vector<CalendarEv
 			nameStream << words.at(i) << " ";
 		}
 		nameStream << words.at(words.size()-3);
-		string name = nameStream.str();
+		name = nameStream.str();
 		auto dateParts = splitDate(dateString);
-		int month = get<0>(dateParts);
-		int day = get<1>(dateParts);
-		int year = get<2>(dateParts);
+		Date tempDate(month, day, year);
+		month = get<0>(dateParts);
+		day = get<1>(dateParts);
+		year = get<2>(dateParts);
+
+		tempDate.setMonth(month);
+		tempDate.setDay(day);
+		tempDate.setYear(year);
+		tempDate.setDate(month, day, year);
+
 		auto timeParts = splitTime(timeString);
-		int hour = get<0>(timeParts);
-		int minute = get<1>(timeParts);
-		calendar = CalendarEvent(month, day, year, hour, minute, name);
+		Time tempTime(hour, minute);
+		hour = get<0>(timeParts);
+		minute = get<1>(timeParts);
+
+		tempTime.setHour(hour);
+		tempTime.setMinute(minute);
+		tempTime.setTime(hour, minute);
+		CalendarEvent calendar(month, day, year, hour, minute, name);
+
 		if (calendar.isEventDateValid() && calendar.isEventTimeValid()){
 			goodVec.push_back(calendar);
-			cout << "TEst" << endl;
+			sortDate(goodVec);
 		}
 		else {
 			badVec.push_back(calendar);
-			cout << "TEST" << endl;
+			sortDate(badVec);
 		}
 	}
 }
+
+bool compareDate(CalendarEvent lhs, CalendarEvent rhs){
+	if (lhs.getYear() == rhs.getYear()){
+		//Years are equal
+		if (lhs.getMonth() < rhs.getMonth()){
+			return true;
+		}
+		else if (lhs.getMonth() == rhs.getMonth()){
+			if (lhs.getDay() < rhs.getDay()){
+				return true;
+			}
+			else if(lhs.getDay() == rhs.getDay()){
+				if (lhs.getHour() < rhs.getHour()){
+					return true;
+				}
+				else if (lhs.getHour() == rhs.getHour()){
+					if (lhs.getMinute() < rhs.getMinute()){
+						return true;
+					}
+					else{
+						return false;
+					}
+				}
+				else {
+					return false;
+				}
+			}
+			else {
+				return false;
+			}
+		}
+	}
+	else {
+		return false;
+	}
+return true;
+}
+
+void sortDate(vector<CalendarEvent>& sortVec){
+	sort(sortVec.begin(), sortVec.end(), compareDate);
+}
+
 
 
 bool checkArguments(int argc) {
