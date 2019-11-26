@@ -5,3 +5,17 @@
 *mkhaas
 *Instructor: Dr. Feaster
 ************************/
+
+
+The biggest problem that I encountered with this project was in my
+CalendarEvent.cpp file when I was trying to implement the CalendarEvent
+constructor to create the object and store the date and time values.
+I could not figure out why it kept printing default garbage values after
+the variables were passed into the CalendarEvent object, but after further
+analysis I realized it was because I had not set the values into the object.
+
+I then decided to create setters for the CalendarEvent object so that I could
+set the values when I created the instance of Date and Time classes in the
+constructor. This project was very helpful for me because it helped me
+practice implementing everything we have learned with classes and filestreams
+to accomplish one goal, printing a calendar of events or appointments. 

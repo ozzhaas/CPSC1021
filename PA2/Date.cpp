@@ -9,21 +9,21 @@
 
 Date::Date(){}
 
+
 Date::Date(int m, int d, int y){
     month = m;
     day = d;
     year = y;
 }
 
+
 void Date::setMonth(int m){
     month = m;
 }
 
-
 void Date::setDay(int d){
     day = d;
 }
-
 
 void Date::setYear(int y){
     year = y;
@@ -57,19 +57,14 @@ int Date::getYear() const{
 }
 
 
+
 void Date::printDate(fstream& output){
     string strMonth = getStrMonth();
-    output<< fixed << strMonth << " " << day << ", " << year << " ";
-    //This function is used to print the date portion of the calendar event.
-    //The format of the date should be in the form of: January 1, 2019
+    output << fixed << strMonth << " " << day << ", " << year << " ";
 }
 
 
 bool Date::isDateValid(){
-/*making sure the months are within 1 – 12, the years are between 1900 – 2020 and the day is between 1 and 31. If the
-month is February the day can only be 29 if it is leap year. Therefore, you will need to check this. You
-should also make sure the day given did not exceed the number of days for that month. If the function
-fails any of the validity checks you are to return false.*/
     if ((month < 1) || (month > 12)) {
         return false;
     }
@@ -115,8 +110,6 @@ return true;
 
 
 bool Date::isLeapYear(){
-/*This function will determine if the year read in is a leap year. Look up the rules for
-determining leap year.*/
     if (((year % 4) == 0) && ((year % 400) != 0)) {
         return true;
     }

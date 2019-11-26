@@ -38,6 +38,7 @@ void CalendarEvent::printCalendar(fstream& output){
     output << getEvent() << endl;
     calDate.printDate(output);
 	calTime.printTime(output);
+    output << setfill(' ');
     output << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl << endl << endl;
 }
 

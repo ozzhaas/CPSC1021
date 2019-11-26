@@ -6,6 +6,8 @@
 *Instructor: Dr. Feaster
 ************************/
 #include "sort.hpp"
+
+
 bool compareDate(CalendarEvent lhs, CalendarEvent rhs){
 	if (lhs.getYear() == rhs.getYear()){
 		//Years are equal
@@ -37,11 +39,15 @@ bool compareDate(CalendarEvent lhs, CalendarEvent rhs){
 			}
 		}
 	}
+	else if (lhs.getYear() < rhs.getYear()) {
+		return true;
+	}
 	else {
 		return false;
 	}
-return true;
+return false;
 }
+
 
 void sortDate(vector<CalendarEvent>& sortVec){
 	sort(sortVec.begin(), sortVec.end(), compareDate);
