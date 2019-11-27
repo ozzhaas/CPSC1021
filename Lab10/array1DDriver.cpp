@@ -13,19 +13,26 @@
 
 int main(int argc, char* argv[]){
 	ifstream inputFile;
-	string magic;
-	int height;
-	int width;
-
+    inputFile.open(argv[1]);
+    ofstream outputFile;
+    outputFile.open(argv[2]);
 	if ((checkArgs(argc) == true) && (checkFile(inputFile) == true)) {
 		Header head;
-		inputFile >> magic;
-		head.setMagic(magic);
-		inputFile >> height;
-		head.setHeight(height);
-		inputFile >> width;
-		head.setWidth(width);
-		Pixel pix;
+		head.readHeader(inputFile);
+		Pixel array1Pixel = Pixel(255, 255, 255);
+		Pixel* pix[head.getHeight() * head.getWidth()];
+		for (unsigned int i = 0; i < sizeof(pix); i++) {
+			Pixel array1Pixel2 = array1Pixel.readPixel(inputFile);
+			pix[i] = array1Pixel2;
+		}
+		HFlip(head, pix);
+		head.writeHeader(outputFile);
+		for (unsigned int j = 0; j < sizeof(pix); j++) {
+			pix[j]->writePixel(outputFile);
+		}
 	}
+	inputFile.close();
+	outputFile.close();
+
 return 0;
 }

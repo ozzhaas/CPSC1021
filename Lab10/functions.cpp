@@ -39,21 +39,29 @@ void HFlip(Header head, vector<vector<Pixel> >& pix) {
 
 
 void HFlip(Header head, vector<Pixel>& pix) {
-	int j = head.getWidth() * head.getHeight();
 	int w = head.getWidth();
 	vector<Pixel> tempPix(pix);
-	int r = 0;
 
-	/*Yvon's Comment:  Try looping through 0 and (width*height)/2 */
-
-	for (int i = 0; i < (head.getWidth() * head.getHeight())/2; i++) {
-		r = (w*(i / w));
-		//pix.at(r +(((j - i - 1)))) = tempPix.at(i);
-		swap(pix.at(i), pix.at(r +(j - i - 1)));
-		//pix.at(j - 1 - i) = tempPix.at(i);
+	for (int i = 0; i < head.getHeight(); i++) {
+		for (int j = 0; j < head.getWidth()/2; j++) {
+			swap(pix.at((i * w) + (w - j - 1)), pix.at((i * w) + j));
+		}
 	}
 }
 
+
+void HFlip(Header head, Pixel* pix) {
+	int w = head.getWidth();
+	Pixel tempPixel[head.getHeight()*head.getWidth()];
+
+	for (int i = 0; i < head.getHeight(); i++) {
+		for (int j = 0; j < head.getWidth()/2; j++) {
+			tempPixel = pix[((i * w) + j)];
+			pix[((i * w) + j)] = pix[((i * w) + (w - j - 1))];
+			pix[((i * w) + (w - j - 1))] = tempPixel;
+		}
+	}
+}
 
 
 bool checkArgs(int argc) {
