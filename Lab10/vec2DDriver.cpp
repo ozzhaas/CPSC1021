@@ -23,11 +23,9 @@
 
 		vector<vector<Pixel> > pix;
 		pix.resize(head.getHeight());
-        cout << "Height: " << head.getHeight() << endl;
         for (unsigned int i = 0; i < pix.size(); i++){
             pix.at(i).resize(head.getWidth());
         }
-        cout << "Width: " << head.getWidth() << endl;
 		for (int i = 0; i < head.getHeight(); i++){
 			for (int j = 0; j < head.getWidth(); j++){
                 Pixel tempPixel2 = tempPixel.readPixel(inputFile);

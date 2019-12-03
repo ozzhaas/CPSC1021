@@ -7,17 +7,39 @@
 ************************/
 #include "CalendarEvent.hpp"
 
-CalendarEvent::CalendarEvent(int month, int day, int year, int hour, int minute, string eventName){
-    Date calDate(month, day, year);
-	Time calTime(hour, minute);
+CalendarEvent::CalendarEvent(int month, int day, int year, int hour, int minute, string name){
+    calDate.setDate(month, day, year);
+    calTime.setTime(hour, minute);
+    setEvent(name);
 }
 
+int CalendarEvent::getYear() const{
+    return calDate.getYear();
+}
 
+int CalendarEvent::getMonth() const{
+    return calDate.getMonth();
+}
 
-void CalendarEvent::printCalendar(ofstream& output){
-	calDate.printDate(output);
-	cout << "Printing time..." << endl;
+int CalendarEvent::getDay() const{
+    return calDate.getDay();
+}
+
+int CalendarEvent::getHour() const {
+    return calTime.getHour();
+}
+
+int CalendarEvent::getMinute() const{
+    return calTime.getMinute();
+}
+
+void CalendarEvent::printCalendar(fstream& output){
+    output << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+    output << getEvent() << endl;
+    calDate.printDate(output);
 	calTime.printTime(output);
+    output << setfill(' ');
+    output << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl << endl << endl;
 }
 
 
@@ -34,6 +56,10 @@ bool CalendarEvent::isEventTimeValid(){
 		return true;
 	}
 	return false;
+}
+
+void CalendarEvent::setEvent(string name) {
+    eventName = name;
 }
 
 

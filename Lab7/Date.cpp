@@ -51,7 +51,7 @@ bool Date::compare(Date& lhs, Date& rhs) {
                 return true;
             }
             /*Else if the months are also equal then check the days*/
-            else if (lhs.month == rhs.year) {
+            else if (lhs.month == rhs.month) {
                 /*If the first dates day is earlier than the 2nd
                   return true*/
                 if (lhs.day < rhs.day) {

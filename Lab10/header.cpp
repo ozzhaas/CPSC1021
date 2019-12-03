@@ -68,5 +68,5 @@ void Header::readHeader(ifstream& inputFile) {
 
 void Header::writeHeader(ofstream& outputFile) {
     outputFile << magic << endl << width << " " << height
-    << " " << maxVal << endl;
+    << endl << maxVal << endl;
 }
