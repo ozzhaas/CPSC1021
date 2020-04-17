@@ -41,8 +41,6 @@ Board::Board() {
 Board::~Board() {};
 
 
-
-
 /*****************************************
   This function will print the gameboard
   using stringstream with numbers
